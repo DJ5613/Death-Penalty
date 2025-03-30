@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5055568888251792655}
+  - component: {fileID: 3134228117500829032}
   m_Layer: 0
   m_Name: fence.fbx
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 6817517293394942658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!65 &3134228117500829032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565341532114357060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 34.39197, y: 521.1451, z: 386.0294}
+  m_Center: {x: 0.92785954, y: 242.21634, z: -116.4969}
 --- !u!1 &947702507753011491
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +367,7 @@ GameObject:
   - component: {fileID: 913496423044246867}
   - component: {fileID: 1119877679134151067}
   - component: {fileID: 4559228880150269644}
+  - component: {fileID: 5069342860166134953}
   m_Layer: 0
   m_Name: Cube.001__0
   m_TagString: Untagged
@@ -420,3 +443,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5069342860166134953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875017696060207443}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3919094720482014237, guid: c5ec0c84376eaa84bac0544b93c4fe49, type: 3}
