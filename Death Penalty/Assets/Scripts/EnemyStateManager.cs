@@ -9,6 +9,7 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] public float agroDistance;
     [SerializeField] public float attackDistance;
     Transform target;
+    NavMeshPath _cachedPath;
 
     BaseState currentState;
     public IdleState idleState = new IdleState();
@@ -26,6 +27,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void Start()
     {
+        _cachedPath = new NavMeshPath();
         SwichState(idleState);
     }
     private void Update()
@@ -33,6 +35,7 @@ public class EnemyStateManager : MonoBehaviour
         SetDestination(player);
         navMeshAgent.destination = target.position;  
         currentState.UpdateState(this);
+        if (DistanceToTarget() < agroDistance) RotateTowardsTarget();
     }
 
     public void SetSpeed(float newSpeed)
@@ -47,6 +50,38 @@ public class EnemyStateManager : MonoBehaviour
 
     public float DistanceToTarget()
     {
-        return(transform.position - target.transform.position).magnitude;        
+        if (target == null)
+            return Mathf.Infinity;
+
+        if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, _cachedPath))
+        {
+            float distance = 0f;
+            for (int i = 1; i < _cachedPath.corners.Length; i++)
+            {
+                distance += Vector3.Distance(_cachedPath.corners[i - 1], _cachedPath.corners[i]);
+            }
+            return distance;
+        }
+
+        return Vector3.Distance(transform.position, target.position);
+    }
+
+    public void RotateTowardsTarget()
+    {
+        if (target == null) return;
+
+        Vector3 direction = (target.position - transform.position).normalized;
+        direction.y = 0; // Игнорируем наклон по оси Y (если не нужно)
+
+        if (direction != Vector3.zero)
+        {
+            // Плавный поворот (Quaternion.Lerp или Slerp)
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                Time.deltaTime * 5f // Скорость поворота (можно настроить)
+            );
+        }
     }
 }
