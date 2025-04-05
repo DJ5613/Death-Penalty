@@ -1,4 +1,0 @@
-repository "Death Penalty@KefIz@cloud"
-  path "/"
-    br "/main"
-    co "/main"
