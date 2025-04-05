@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
-public class HandAnimation1 : MonoBehaviour
+public class HandAnimation : MonoBehaviour
 {
 
     [SerializeField]
