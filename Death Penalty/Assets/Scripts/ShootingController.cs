@@ -70,7 +70,7 @@ public class EnemyArcher : MonoBehaviour
     {
         isAiming = true;
 
-        // Задержка перед выстрелом (имитация прицеливания)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         yield return new WaitForSeconds(0.5f);
 
         if (hasTarget && playerTarget != null)
@@ -85,14 +85,14 @@ public class EnemyArcher : MonoBehaviour
     {
         if (projectilePrefab == null) return;
 
-        // Расчет позиции с учетом движения цели и гравитации
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Vector3 targetPosition = playerTarget.position + Vector3.up * heightOffset;
-        Vector3 predictedPosition = targetPosition + playerTarget.GetComponent<Rigidbody>().velocity * aimingOffset;
+        Vector3 predictedPosition = targetPosition + playerTarget.GetComponent<Rigidbody>().linearVelocity * aimingOffset;
 
         Vector3 direction = (predictedPosition - firePoint.position).normalized;
         float distance = Vector3.Distance(firePoint.position, predictedPosition);
 
-        // Учет гравитации при расчете скорости
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         float elevationAngle = Mathf.Atan2(direction.y, Mathf.Sqrt(direction.x * direction.x + direction.z * direction.z));
         float adjustedSpeed = Mathf.Sqrt(projectileGravity * distance / Mathf.Sin(2 * elevationAngle));
 
@@ -123,7 +123,7 @@ public class Projectile : MonoBehaviour
     public void Initialize(Vector3 velocity, float gravity, float lifetime)
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = velocity;
+        rb.linearVelocity = velocity;
         this.gravity = gravity;
         damageCollider.enabled = true;
         StartCoroutine(DestroyAfterLifetime(lifetime));
@@ -133,12 +133,12 @@ public class Projectile : MonoBehaviour
     {
         if (!hasHit)
         {
-            // Применяем гравитацию
-            rb.velocity += Vector3.down * gravity * Time.fixedDeltaTime;
-            // Поворачиваем стрелу по направлению движения
-            if (rb.velocity != Vector3.zero)
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            rb.linearVelocity += Vector3.down * gravity * Time.fixedDeltaTime;
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            if (rb.linearVelocity != Vector3.zero)
             {
-                transform.rotation = Quaternion.LookRotation(rb.velocity);
+                transform.rotation = Quaternion.LookRotation(rb.linearVelocity);
             }
         }
     }
@@ -158,26 +158,26 @@ public class Projectile : MonoBehaviour
             if (collision.gameObject.CompareTag(tag)) return;
         }
 
-        // Нанесение урона
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         /*Health targetHealth = collision.gameObject.GetComponent<Health>();
         if (targetHealth != null)
         {
             targetHealth.TakeDamage(damage);
         }*/
 
-        // Эффект попадания
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (hitEffect != null)
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
 
-        // Обработка попадания
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         hasHit = true;
         rb.isKinematic = true;
         damageCollider.enabled = false;
         Destroy(GetComponent<TrailRenderer>(), 0.5f);
 
-        // Прикрепление к цели
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
         if (!collision.gameObject.CompareTag("Player"))
         {
             transform.SetParent(collision.transform);

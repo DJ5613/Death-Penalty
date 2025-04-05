@@ -62,7 +62,7 @@ public class ArcherEnemy : MonoBehaviour
         Vector3 direction = target.position - shootPoint.position;//CalculateBallisticVelocity(shootPoint.position, target.position, arrowGravity);
 
         // Применяем силу к стреле
-        rb.velocity = direction * arrowSpeed;
+        rb.linearVelocity = direction * arrowSpeed;
 
         // Включаем коллизию (если она была выключена в префабе)
         Collider arrowCollider = arrow.GetComponent<Collider>();
