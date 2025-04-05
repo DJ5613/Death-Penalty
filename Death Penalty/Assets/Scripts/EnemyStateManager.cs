@@ -5,9 +5,10 @@ public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
-    [SerializeField] public float wolkSpeed;
-    [SerializeField] public float agroDistance;
-    [SerializeField] public float attackDistance;
+    public float wolkSpeed;
+    public float agroDistance;
+    public float attackDistance;
+    public float enemyHP;
     Transform target;
     NavMeshPath _cachedPath;
 
