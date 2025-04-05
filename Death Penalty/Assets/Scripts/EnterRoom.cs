@@ -5,8 +5,8 @@ public class GateControllerRoom : MonoBehaviour
 {
     public Transform gate1;
     public Transform gate2;
-    public Vector3 raisedOffset = new Vector3(0, 5f, 0);
-    public float moveSpeed = 2f;
+    public Vector3 raisedOffset = new Vector3(0, 5.65f, 0);
+    public float moveSpeed = 2.5f;
     public string enemyTag = "skeleton";
 
     private enum GateState { Closed, Opening, Opened, Closing }

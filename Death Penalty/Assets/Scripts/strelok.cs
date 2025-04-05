@@ -1,7 +1,7 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyStateManager : MonoBehaviour
+public class strelok : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
@@ -25,10 +25,9 @@ public class EnemyStateManager : MonoBehaviour
         currentState = newState;
         currentState.EnterState(this);
     }
-
+    w
     private void Start()
     {
-        if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
         SwichState(idleState);
     }
@@ -38,6 +37,7 @@ public class EnemyStateManager : MonoBehaviour
         navMeshAgent.destination = target.position;
         currentState.UpdateState(this);
         if (DistanceToTarget() < agroDistance) RotateTowardsTarget();
+        if (DistanceToTarget() < agroDistance) ShootProjectileAtTarget();
     }
 
     public void SetSpeed(float newSpeed)
@@ -86,4 +86,52 @@ public class EnemyStateManager : MonoBehaviour
             );
         }
     }
-}
+
+
+    [Header("Projectile Settings")]
+    [SerializeField] private GameObject projectilePrefab; // Префаб стрелы/снаряда
+    [SerializeField] private Transform shootPoint; // Точка, откуда будет вылетать снаряд
+    [SerializeField] private float projectileSpeed = 10f; // Скорость снаряда
+    [SerializeField] private float shootCooldown = 2f; // Задержка между выстрелами
+    private float lastShootTime; // Время последнего выстрела
+
+    public void ShootProjectileAtTarget()
+    {
+        // Проверяем, можно ли стрелять (прошло ли время перезарядки)
+        if (Time.time - lastShootTime < shootCooldown) return;
+
+        // Проверяем наличие цели и префаба
+        if (target == null || projectilePrefab == null || shootPoint == null)
+        {
+            Debug.LogWarning("Shooting parameters not set properly!");
+            return;
+        }
+
+        // Создаем снаряд
+        GameObject projectile = Instantiate(
+            projectilePrefab,
+            shootPoint.position,
+            Quaternion.identity
+        );
+
+        // Рассчитываем направление к цели
+        Vector3 direction = (target.position - shootPoint.position).normalized;
+
+        // Настраиваем снаряд
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * projectileSpeed;
+        }
+        else
+        {
+            Debug.LogWarning("Projectile prefab has no Rigidbody component!");
+        }
+
+        // Настраиваем вращение снаряда, чтобы он смотрел в направлении движения
+        projectile.transform.rotation = Quaternion.LookRotation(direction);
+
+        // Запоминаем время последнего выстрела
+        lastShootTime = Time.time;
+    }
+}*/
