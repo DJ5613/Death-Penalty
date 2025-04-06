@@ -5,6 +5,9 @@ public class AgroState : BaseState
     public override void EnterState(EnemyStateManager manager)
     {
         manager.SetSpeed(manager.wolkSpeed);
+        manager.animator.SetBool("IsAgro", true);
+        manager.animator.SetBool("IsSimpleAttacking", false);
+        manager.animator.SetBool("IsComboAttacking", false);
     }
     public override void ExitState(EnemyStateManager manager)
     {
@@ -18,9 +21,9 @@ public class AgroState : BaseState
             return;
         }
 
-        if (manager.DistanceToTarget()  <= manager.attackDistance)
+        if (manager.DistanceToTarget()  <= manager.comboAttackDistance)
         {
-            manager.SwichState(manager.attackState);
+            manager.SwichState(manager.comboAttackState);
             return;
         }
     }

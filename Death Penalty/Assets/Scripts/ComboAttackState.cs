@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class AttackState : BaseState
+public class ComboAttackState : BaseState
 {
     public override void EnterState(EnemyStateManager manager)
     {
         manager.SetSpeed(0);
+        manager.animator.SetBool("IsSimpleAttacking", false);
+        manager.animator.SetBool("IsComboAttacking", true);
+        manager.animator.SetBool("IsAgro", false);
     }
     public override void ExitState(EnemyStateManager manager)
     {
@@ -12,10 +15,8 @@ public class AttackState : BaseState
     }
     public override void UpdateState(EnemyStateManager manager)
     {
-        if (manager.DistanceToTarget() > manager.attackDistance)
-        {
-            manager.SwichState(manager.agroState);
-            return;
-        }
+
     }
+
+    
 }

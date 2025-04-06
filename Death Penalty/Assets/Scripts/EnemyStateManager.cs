@@ -5,9 +5,12 @@ public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
+    [SerializeField] public Animator animator;
     public float wolkSpeed;
     public float agroDistance;
-    public float attackDistance;
+    public float simpleAttackDistance;
+    public float comboAttackDistance;
+    public float comboAttackSpeed;
     public float enemyHP;
     Transform target;
     NavMeshPath _cachedPath;
@@ -16,6 +19,7 @@ public class EnemyStateManager : MonoBehaviour
     public IdleState idleState = new IdleState();
     public AgroState agroState = new AgroState();
     public AttackState attackState = new AttackState();
+    public ComboAttackState comboAttackState = new ComboAttackState();
 
     public void SwichState(BaseState newState)
     {
@@ -87,4 +91,27 @@ public class EnemyStateManager : MonoBehaviour
             );
         }
     }
+
+    void CheckState()
+    {
+        if (DistanceToTarget() >= comboAttackDistance)
+        {
+            SwichState(agroState);
+            return;
+        }
+        if (DistanceToTarget() > simpleAttackDistance && DistanceToTarget() < comboAttackDistance)
+        {
+            SwichState(comboAttackState);
+            return;
+        }
+        if (DistanceToTarget() <= simpleAttackDistance)
+        {
+            SwichState(attackState);
+            return;
+        }
+    }
+
+    void ResetSpeed() { SetSpeed(0); }
+    void SetComboSpeed() { SetSpeed(comboAttackSpeed); }
+    
 }

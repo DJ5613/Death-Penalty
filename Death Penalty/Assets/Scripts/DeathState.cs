@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class DeathState : MonoBehaviour
+public class DeathState : BaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void EnterState(EnemyStateManager manager)
     {
-        
+        manager.SetSpeed(0);
+        manager.animator.SetBool("IsDeath", true);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void ExitState(EnemyStateManager manager)
     {
-        
+
+    }
+    public override void UpdateState(EnemyStateManager manager)
+    {
+
     }
 }
