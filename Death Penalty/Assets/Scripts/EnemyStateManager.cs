@@ -42,7 +42,7 @@ public class EnemyStateManager : MonoBehaviour
         SetDestination(player);
         navMeshAgent.destination = target.position;
         currentState.UpdateState(this);
-        if (DistanceToTarget() < agroDistance) RotateTowardsTarget();
+        if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
     }
 
     public void SetSpeed(float newSpeed)

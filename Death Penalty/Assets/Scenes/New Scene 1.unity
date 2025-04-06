@@ -11444,15 +11444,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19657,6 +19657,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1219573785}
+    - target: {fileID: 6790393317642923033, guid: 49767ab2256dda34d95579ecffd060d6, type: 3}
+      propertyPath: comboAttackDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790393317642923033, guid: 49767ab2256dda34d95579ecffd060d6, type: 3}
+      propertyPath: simpleAttackDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9043067831670340487, guid: 49767ab2256dda34d95579ecffd060d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.66
