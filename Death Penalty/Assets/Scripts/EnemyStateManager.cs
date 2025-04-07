@@ -12,14 +12,16 @@ public class EnemyStateManager : MonoBehaviour
     public float comboAttackDistance;
     public float comboAttackSpeed;
     public float enemyHP;
+    public float enemyDamage;
     Transform target;
     NavMeshPath _cachedPath;
 
     BaseState currentState;
     public IdleState idleState = new IdleState();
     public AgroState agroState = new AgroState();
-    public AttackState attackState = new AttackState();
+    public SimpleAttackState simpleAttackState = new SimpleAttackState();
     public ComboAttackState comboAttackState = new ComboAttackState();
+    public DeathState deathState = new DeathState();
 
     public void SwichState(BaseState newState)
     {
@@ -43,6 +45,7 @@ public class EnemyStateManager : MonoBehaviour
         navMeshAgent.destination = target.position;
         currentState.UpdateState(this);
         if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
+        if (enemyHP <= 0) animator.SetBool("IsDeath", true);
     }
 
     public void SetSpeed(float newSpeed)
@@ -106,7 +109,7 @@ public class EnemyStateManager : MonoBehaviour
         }
         if (DistanceToTarget() <= simpleAttackDistance)
         {
-            SwichState(attackState);
+            SwichState(simpleAttackState);
             return;
         }
     }

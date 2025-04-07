@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackState : BaseState
+public class SimpleAttackState : BaseState
 {
     public override void EnterState(EnemyStateManager manager)
     {
