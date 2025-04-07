@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 2720013105738727986}
   - component: {fileID: 2530334672684182599}
   - component: {fileID: 6790393317642923033}
+  - component: {fileID: 8880785923076391678}
   m_Layer: 0
   m_Name: SKELETON
   m_TagString: Enemy
@@ -728,8 +729,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 5.830136, z: 1}
-  m_Center: {x: 0, y: 3.7010586, z: 0}
+  m_Size: {x: 2.4804993, y: 5.830136, z: 2.213234}
+  m_Center: {x: 0.08126831, y: 3.7010586, z: -0.062381744}
 --- !u!195 &2530334672684182599
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -770,9 +771,22 @@ MonoBehaviour:
   wolkSpeed: 2
   agroDistance: 10
   simpleAttackDistance: 2
-  comboAttackDistance: 3.7
+  comboAttackDistance: 4
   comboAttackSpeed: 1
   enemyHP: 100
+--- !u!114 &8880785923076391678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748712637077219034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 3
 --- !u!1 &3836642035321495203
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,11 +9,12 @@ public class KillingEnemies : MonoBehaviour
     {
             if (other.CompareTag("Weapon"))
             {
-                HPCount++;
+                HP -= other.gameObject.GetComponent<WeaponStats>().damage;
+                
 
-                Debug.Log("Враг получил удар оружием! Счётчик: " + HPCount);
+                Debug.Log("Враг получил удар оружием! ХП: " + HP);
 
-                if (HPCount >= HP)
+                if (HP<=0)
                 {
                     Destroy(gameObject);
                     Debug.Log("Враг убит!");
