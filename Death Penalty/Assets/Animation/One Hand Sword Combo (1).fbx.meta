@@ -403,12 +403,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 L Foot
       parentName: Bip01 L Calf
-      position: {x: -1.5412, y: 0, z: 0}
+      position: {x: -1.994, y: -0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 L Toe0
       parentName: Bip01 L Foot
-      position: {x: -0.4068, y: 0.5346, z: 0}
+      position: {x: -0.371, y: 0.535, z: -0}
       rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 L Toe0Nub
@@ -428,12 +428,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 R Foot
       parentName: Bip01 R Calf
-      position: {x: -1.5412, y: 0, z: 0}
+      position: {x: -1.99, y: 0, z: -0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 R Toe0
       parentName: Bip01 R Foot
-      position: {x: -0.4068, y: 0.5346, z: 0}
+      position: {x: -0.375, y: 0.535, z: -0}
       rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 R Toe0Nub
@@ -506,6 +506,36 @@ ModelImporter:
       position: {x: -0.1563, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: Bip01 Neck
+      parentName: Bip01 Spine2
+      position: {x: -0.9472, y: 0.0514, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bip01 Head
+      parentName: Bip01 Neck
+      position: {x: -0.3912, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bip01 HeadNub
+      parentName: Bip01 Head
+      position: {x: -0.717, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bip01 Ponytail1
+      parentName: Bip01 Head
+      position: {x: -0.1376, y: 0.1624, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bip01 Ponytail1Nub
+      parentName: Bip01 Ponytail1
+      position: {x: -0.4424, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mixamo:jar_01
+      parentName: Bip01 Ponytail1
+      position: {x: -0.1216, y: -0.0249, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Bip01 R Clavicle
       parentName: Bip01 Spine2
       position: {x: -0.9047, y: -0.0407, z: -0.1068}
@@ -559,36 +589,6 @@ ModelImporter:
     - name: Bip01 Spine3
       parentName: Bip01 Spine2
       position: {x: -0.4563, y: -0.0004, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bip01 Neck
-      parentName: Bip01 Spine2
-      position: {x: -0.9472, y: 0.0514, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bip01 Head
-      parentName: Bip01 Neck
-      position: {x: -0.3912, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bip01 HeadNub
-      parentName: Bip01 Head
-      position: {x: -0.717, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bip01 Ponytail1
-      parentName: Bip01 Head
-      position: {x: -0.1376, y: 0.1624, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bip01 Ponytail1Nub
-      parentName: Bip01 Ponytail1
-      position: {x: -0.4424, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamo:jar_01
-      parentName: Bip01 Ponytail1
-      position: {x: -0.1216, y: -0.0249, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
