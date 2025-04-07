@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
 public class HandAnimation : MonoBehaviour
 {
-
     [SerializeField]
     XRInputValueReader<float> m_TriggerInput;
     [SerializeField]
@@ -11,12 +10,6 @@ public class HandAnimation : MonoBehaviour
     [SerializeField]
     Animator animator;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         animator.SetFloat("Trigger", m_TriggerInput.ReadValue());
