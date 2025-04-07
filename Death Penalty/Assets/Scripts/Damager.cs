@@ -6,7 +6,7 @@ public class Damager : MonoBehaviour
     {
         if (other.TryGetComponent<DamageDetector>(out DamageDetector detector))
         {
-            detector.OnDamageDetected(GetComponent<EnemyStateManager>());
+            detector.OnDamageDetected(5);//GetComponent<EnemyStateManager>()
         }
     }
 }
