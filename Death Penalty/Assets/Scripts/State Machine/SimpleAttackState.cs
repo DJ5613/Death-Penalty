@@ -15,10 +15,6 @@ public class SimpleAttackState : BaseState
     }
     public override void UpdateState(EnemyStateManager manager)
     {
-        //if (manager.DistanceToTarget() > manager.attackDistance)
-        //{
-        //    manager.SwichState(manager.agroState);
-        //    return;
-        //}
+
     }
 }
