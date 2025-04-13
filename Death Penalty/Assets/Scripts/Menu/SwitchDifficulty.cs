@@ -20,15 +20,14 @@ public class SwitchDifficulty : MonoBehaviour
     }
     private void UpdateDifficulty()
     {
-        easyDifficulty.SetActive(dif_num == 1);
-        mediumDifficulty.SetActive(dif_num == 2);
-        hardDifficulty.SetActive(dif_num == 3);
+        if (easyDifficulty != null) easyDifficulty.SetActive(dif_num == 1);
+        if (mediumDifficulty != null) mediumDifficulty.SetActive(dif_num == 2);
+        if (hardDifficulty != null) hardDifficulty.SetActive(dif_num == 3);
     }
 
     private void Awake()
     {
         _buttonRight.onClick.AddListener(() => NextDifficult(false, true));
         _buttonLeft.onClick.AddListener(() => NextDifficult(true, false));
-        DontDestroyOnLoad(this.gameObject); // Переносим объект между сценами
     }
 }
