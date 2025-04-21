@@ -9,11 +9,16 @@ public class PlaySoundOnTake : MonoBehaviour
 
     private void Awake()
     {
-        grabInteractable = GetComponent<XRGrabInteractable>();
+        //grabInteractable = GetComponent<XRGrabInteractable>();
         audioSource = GetComponent<AudioSource>();
-        grabInteractable.selectEntered.AddListener(PlayGrabSound);
+        //grabInteractable.selectEntered.AddListener(PlayGrabSound);
     }
 
+    public void playSound()
+    {
+        audioSource.Play();
+    }
+    /*
     private void PlayGrabSound(SelectEnterEventArgs arg)
     {
         // Воспроизводим звук, если он есть
@@ -26,4 +31,5 @@ public class PlaySoundOnTake : MonoBehaviour
             Debug.LogWarning("НЕТУ ЗВУКА ДУРАК хахаха бака типо хахаа", this);
         }
     }
-}
+    */
+} 
