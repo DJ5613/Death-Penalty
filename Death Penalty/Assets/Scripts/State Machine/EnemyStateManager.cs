@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 
 public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
+    [SerializeField] Collider TriggerCollider;
     public float wolkSpeed;
     public float agroDistance;
     public float simpleAttackDistance;
@@ -22,7 +24,7 @@ public class EnemyStateManager : MonoBehaviour
     public SimpleAttackState simpleAttackState = new SimpleAttackState();
     public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
-
+    public static bool playerInRoom;
     public void SwichState(BaseState newState)
     {
         if (currentState != null)
@@ -38,13 +40,17 @@ public class EnemyStateManager : MonoBehaviour
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
         SwichState(idleState);
+        
     }
     private void Update()
     {
         SetDestination(player);
         navMeshAgent.destination = target.position;
-        currentState.UpdateState(this);
-        if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
+        if (playerInRoom)
+        {
+            currentState.UpdateState(this);
+            if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
+        }
         if (enemyHP <= 0) 
         { 
             animator.SetBool("IsDeath", true); 
@@ -98,7 +104,8 @@ public class EnemyStateManager : MonoBehaviour
         }
     }
 
-    void CheckState()
+
+        void CheckState()
     {
         if (DistanceToTarget() >= comboAttackDistance)
         {
@@ -119,5 +126,4 @@ public class EnemyStateManager : MonoBehaviour
 
     void ResetSpeed() { SetSpeed(0); }
     void SetComboSpeed() { SetSpeed(comboAttackSpeed); }
-    
 }
