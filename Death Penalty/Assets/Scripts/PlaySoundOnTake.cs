@@ -14,12 +14,6 @@ public class PlaySoundOnTake : MonoBehaviour
         grabInteractable.selectEntered.AddListener(PlayGrabSound);
     }
 
-    private void OnDestroy()
-    {
-        // Отписываемся от событий при уничтожении объекта
-        grabInteractable.selectEntered.RemoveListener(PlayGrabSound);
-    }
-
     private void PlayGrabSound(SelectEnterEventArgs arg)
     {
         // Воспроизводим звук, если он есть
@@ -29,7 +23,7 @@ public class PlaySoundOnTake : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No audio clip assigned for grab sound effect.", this);
+            Debug.LogWarning("НЕТУ ЗВУКА ДУРАК хахаха бака типо хахаа", this);
         }
     }
 }
