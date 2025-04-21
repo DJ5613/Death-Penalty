@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3263580878361587021}
   - component: {fileID: 179353450165023438}
   - component: {fileID: 3879481446492475679}
+  - component: {fileID: 589789059152636323}
   m_Layer: 0
   m_Name: Sword Standard 1
   m_TagString: Weapon
@@ -36,6 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8266162386262218308}
+  - {fileID: 1430790134504241826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8440325063997004163
@@ -57,7 +59,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.029667541, y: 0.029554605, z: 0.19502509}
+  m_Size: {x: 0.01, y: 0.02, z: 0.19502509}
   m_Center: {x: -0.0021064505, y: -0.009297013, z: 0.42606336}
 --- !u!65 &5415583787063778913
 BoxCollider:
@@ -282,6 +284,20 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
+--- !u!114 &589789059152636323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263580878359327629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31779f1d4b6479e409d91898805e68a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHandAttach: {fileID: 1430790134504241826}
+  rightHandAttach: {fileID: 8266162386262218308}
 --- !u!1 &5870946145636697930
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +309,7 @@ GameObject:
   - component: {fileID: 8266162386262218308}
   - component: {fileID: 8029742988500852612}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,13 +323,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5870946145636697930}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: -0.006, z: 0.437}
+  m_LocalRotation: {x: -0.59636784, y: -0.59636784, z: 0.3799282, w: 0.3799282}
+  m_LocalPosition: {x: 0, y: -0.015, z: 0.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3263580878359162797}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: -115, z: 90}
 --- !u!114 &8029742988500852612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +337,50 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5870946145636697930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659c4b7d739d1064fa5eb3ffe15e919e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8461414786152184157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430790134504241826}
+  - component: {fileID: 7017519212963528107}
+  m_Layer: 0
+  m_Name: Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1430790134504241826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461414786152184157}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.37992823, y: -0.37992823, z: 0.59636784, w: 0.59636784}
+  m_LocalPosition: {x: 0, y: 0.013, z: 0.437}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3263580878359162797}
+  m_LocalEulerAnglesHint: {x: 0, y: -65, z: 90}
+--- !u!114 &7017519212963528107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461414786152184157}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 659c4b7d739d1064fa5eb3ffe15e919e, type: 3}
