@@ -2,26 +2,15 @@ using UnityEngine;
 
 public class KillingEnemies : MonoBehaviour
 {
-    [SerializeField] static EnemyStateManager manager;
-    private  float HP = manager.enemyHP;
+    [SerializeField] EnemyStateManager manager;
 
     private void OnTriggerEnter(Collider other)
     {
-            if (other.CompareTag("Weapon"))
-            {
-            //HP -= other.gameObject.GetComponent<WeaponStats>().damage;
+        if (other.CompareTag("Weapon"))
+        {
             manager.enemyHP -= 20f;
-                
-
-                Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
-
-                //if (HP<=0)
-                //{
-                //    Destroy(gameObject);
-                //    Debug.Log("Враг убит!");
-                //}
-            }
-        
+            Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
+        }
     }
-
 }
+//Крепится на Skeleton/skeleton_mesh

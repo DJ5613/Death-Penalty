@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c190251e2d7915489fab55ba3839281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
+  manager: {fileID: 4590734439126922144}
 --- !u!1 &358549933081888571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,9 +1064,8 @@ GameObject:
   - component: {fileID: 1260381231863119687}
   - component: {fileID: 7898003485311715665}
   - component: {fileID: 8070354785357765972}
-  - component: {fileID: 572241739307041978}
-  - component: {fileID: 8009092286457534093}
   - component: {fileID: 3240084332815171384}
+  - component: {fileID: 4590734439126922144}
   m_Layer: 0
   m_Name: SKELETON
   m_TagString: Enemy
@@ -1157,7 +1156,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.07
   m_Height: 6.89
@@ -1184,41 +1183,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.4804993, y: 5.830136, z: 2.213234}
   m_Center: {x: 0.08126831, y: 3.7010586, z: -0.062381744}
---- !u!114 &572241739307041978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7191239717654708338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3240084332815171384}
-  player: {fileID: 0}
-  animator: {fileID: 3361563701891241750}
-  wolkSpeed: 2
-  agroDistance: 10
-  simpleAttackDistance: 2
-  comboAttackDistance: 3.7
-  comboAttackSpeed: 1
-  enemyHP: 100
-  enemyDamage: 12
---- !u!114 &8009092286457534093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7191239717654708338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 3
 --- !u!195 &3240084332815171384
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1241,6 +1205,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4590734439126922144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191239717654708338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 3240084332815171384}
+  player: {fileID: 0}
+  animator: {fileID: 3361563701891241750}
+  wolkSpeed: 2
+  agroDistance: 10
+  simpleAttackDistance: 2
+  comboAttackDistance: 3.7
+  comboAttackSpeed: 1
+  enemyHP: 100
+  enemyDamage: 12
 --- !u!1 &7191527971810416441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1269,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1315975013349871893}
   - component: {fileID: 4771861200947479217}
+  - component: {fileID: 4492794648351787018}
+  - component: {fileID: 4210219635193731346}
   m_Layer: 0
   m_Name: skeleton_mesh
   m_TagString: Untagged
@@ -1392,6 +1380,42 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.09016192, y: -0.101312995, z: 0.001445055}
     m_Extent: {x: 3.3079643, y: 0.9062954, z: 1.589275}
   m_DirtyAABB: 0
+--- !u!136 &4492794648351787018
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217096060950770005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.06
+  m_Height: 7.4241185
+  m_Direction: 2
+  m_Center: {x: -0.0014448169, y: 0.10131312, z: 2.9537108}
+--- !u!114 &4210219635193731346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217096060950770005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 4590734439126922144}
 --- !u!1 &7451041516369660898
 GameObject:
   m_ObjectHideFlags: 0

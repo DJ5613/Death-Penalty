@@ -7,7 +7,6 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
-    [SerializeField] Collider TriggerCollider;
     public float wolkSpeed;
     public float agroDistance;
     public float simpleAttackDistance;
@@ -24,7 +23,7 @@ public class EnemyStateManager : MonoBehaviour
     public SimpleAttackState simpleAttackState = new SimpleAttackState();
     public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
-    public static bool playerInRoom;
+    public static bool playerInRoom = true;
     public void SwichState(BaseState newState)
     {
         if (currentState != null)
@@ -43,17 +42,18 @@ public class EnemyStateManager : MonoBehaviour
         
     }
     private void Update()
-    {
-        SetDestination(player);
-        navMeshAgent.destination = target.position;
+    {        
         if (playerInRoom)
         {
+            SetDestination(player);
+            navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
             if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
         }
         if (enemyHP <= 0) 
         { 
-            animator.SetBool("IsDeath", true); 
+            animator.SetBool("IsDeath", true);
+            Debug.Log("ÂÐÀÃ ÓÌÅÐ");
         }
     }
 
