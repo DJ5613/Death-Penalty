@@ -23,7 +23,7 @@ public class EnemyStateManager : MonoBehaviour
     public SimpleAttackState simpleAttackState = new SimpleAttackState();
     public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
-    public static bool playerInRoom = true;
+    public static bool playerInRoom = true; //Должно быть false, пока что сделано для теста
     public void SwichState(BaseState newState)
     {
         if (currentState != null)
@@ -31,7 +31,7 @@ public class EnemyStateManager : MonoBehaviour
             currentState.ExitState(this);
         }
         currentState = newState;
-        currentState.EnterState(this);
+        currentState.EnterState(this);//не используется
     }
 
     private void Start()
@@ -52,7 +52,8 @@ public class EnemyStateManager : MonoBehaviour
         }
         if (enemyHP <= 0) 
         { 
-            animator.SetBool("IsDeath", true);
+            //animator.SetBool("IsDeath", true);
+            SwichState(deathState);
             Debug.Log("ВРАГ УМЕР");
         }
     }
@@ -105,7 +106,7 @@ public class EnemyStateManager : MonoBehaviour
     }
 
 
-        void CheckState()
+    void CheckState()
     {
         if (DistanceToTarget() >= comboAttackDistance)
         {

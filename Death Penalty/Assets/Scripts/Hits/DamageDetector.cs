@@ -8,6 +8,9 @@ public class DamageDetector : MonoBehaviour
     {        
         Debug.Log($"Ъ ЯКНБХК {damage} СПНМЮ");
         playerHP -= damage;
-        if (playerHP <= 0) Debug.Log("рш слеп мюуси кну уюуюуюуюуюуюуу");
+        if (playerHP <= 0)
+        {
+            Debug.Log("рш слеп кну уюуюуюуюуюуюуу");
+        }
     }
 }

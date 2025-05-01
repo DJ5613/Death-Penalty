@@ -9,9 +9,9 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] public Animator animator;
     public float wolkSpeed;
     public float agroDistance;
-    public float simpleAttackDistance;
-    public float comboAttackDistance;
-    public float comboAttackSpeed;
+    //public float simpleAttackDistance;
+    //public float comboAttackDistance;
+    //public float comboAttackSpeed;
     public float enemyHP;
     public float enemyDamage;
     Transform target;
@@ -52,7 +52,7 @@ public class BossStateManager : MonoBehaviour
         }
         if (enemyHP <= 0)
         {
-            animator.SetBool("IsDeath", true);
+            //animator.SetBool("IsDeath", true);
             Debug.Log("ÂÐÀÃ ÓÌÅÐ");
         }
     }

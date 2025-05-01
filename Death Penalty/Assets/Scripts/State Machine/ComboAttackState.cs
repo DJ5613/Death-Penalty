@@ -9,10 +9,7 @@ public class ComboAttackState : BaseState
         manager.animator.SetBool("IsComboAttacking", true);
         manager.animator.SetBool("IsAgro", false);
     }
-    public override void ExitState(EnemyStateManager manager)
-    {
-
-    }
+  
     public override void UpdateState(EnemyStateManager manager)
     {
 
