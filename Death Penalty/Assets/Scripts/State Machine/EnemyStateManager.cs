@@ -7,6 +7,7 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
+    [SerializeField] GameObject sword;
     public float wolkSpeed;
     public float agroDistance;
     public float simpleAttackDistance;
@@ -14,6 +15,7 @@ public class EnemyStateManager : MonoBehaviour
     public float comboAttackSpeed;
     public float enemyHP;
     public float enemyDamage;
+    public bool rotationFlag = true;
     Transform target;
     NavMeshPath _cachedPath;
 
@@ -48,12 +50,15 @@ public class EnemyStateManager : MonoBehaviour
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
-            if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
+            if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath") && rotationFlag) RotateTowardsTarget();
         }
         if (enemyHP <= 0) 
         { 
-            //animator.SetBool("IsDeath", true);
             SwichState(deathState);
+            sword.transform.SetParent(null);
+            sword.GetComponent<Rigidbody>().isKinematic = false;
+            sword.GetComponent<Collider>().isTrigger = false;
+            //rb.useGravity = true;
             Debug.Log("¬–¿√ ”Ã≈–");
         }
     }
@@ -127,4 +132,9 @@ public class EnemyStateManager : MonoBehaviour
 
     void ResetSpeed() { SetSpeed(0); }
     void SetComboSpeed() { SetSpeed(comboAttackSpeed); }
+    void IsRotate(int value) 
+    { 
+        if (value == 1) rotationFlag = true;
+        else rotationFlag = false;
+    }
 }

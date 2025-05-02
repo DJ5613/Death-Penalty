@@ -4,10 +4,10 @@ public class AgroState : BaseState
 {
     public override void EnterState(EnemyStateManager manager)
     {
-        manager.SetSpeed(manager.wolkSpeed);
         manager.animator.SetBool("IsAgro", true);
         manager.animator.SetBool("IsSimpleAttacking", false);
         manager.animator.SetBool("IsComboAttacking", false);
+        manager.SetSpeed(manager.wolkSpeed);
     }
     public override void ExitState(EnemyStateManager manager)
     {

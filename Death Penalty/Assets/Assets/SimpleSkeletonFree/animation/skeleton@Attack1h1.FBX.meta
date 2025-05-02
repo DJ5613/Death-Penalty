@@ -353,7 +353,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.9086495
+      - time: 0.100523554
+        functionName: IsRotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8963351
+        functionName: IsRotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+        floatParameter: 1
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.91014653
         functionName: CheckState
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}

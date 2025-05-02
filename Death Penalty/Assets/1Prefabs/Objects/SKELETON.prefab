@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7384871715560357495}
   - component: {fileID: 4398264987714490499}
   - component: {fileID: 619110173529861199}
+  - component: {fileID: 4287272583171736800}
   m_Layer: 0
   m_Name: SWORD
   m_TagString: Untagged
@@ -122,6 +123,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 4590734439126922144}
+--- !u!54 &4287272583171736800
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106716830377055631}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &358549933081888571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1248,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 3240084332815171384}
   player: {fileID: 0}
   animator: {fileID: 3361563701891241750}
+  sword: {fileID: 106716830377055631}
   wolkSpeed: 2
   agroDistance: 10
   simpleAttackDistance: 2

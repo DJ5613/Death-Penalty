@@ -55,22 +55,50 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8505832
+      - time: 0.17153601
+        functionName: SetComboSpeed
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.28049377
         functionName: CheckState
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.73707753
+      - time: 0.33697987
+        functionName: SetComboSpeed
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.48857
+        functionName: CheckState
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5454267
+        functionName: SetComboSpeed
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.71585155
         functionName: ResetSpeed
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.17153601
-        functionName: SetComboSpeed
+      - time: 0.8505832
+        functionName: CheckState
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 068085ed8da99404693d965cdea544b5, type: 3}
         floatParameter: 0
