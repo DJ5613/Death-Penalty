@@ -61,6 +61,11 @@ public class EnemyStateManager : MonoBehaviour
             sword.GetComponent<Collider>().isTrigger = false;
             //rb.useGravity = true;
             Debug.Log("¬–¿√ ”Ã≈–");
+            Collider collider = GetComponent<Collider>();
+            collider.enabled = false;
+            BoxCollider boxCollider = GetComponent<BoxCollider>();
+            boxCollider.center -= new Vector3(0,5,0);
+            
         }
     }
 

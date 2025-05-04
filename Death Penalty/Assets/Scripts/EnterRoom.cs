@@ -26,6 +26,7 @@ public class GateControllerRoom : MonoBehaviour
 
         gate2ClosedPos = gate2.position;
         gate2OpenPos = gate2ClosedPos + raisedOffset;
+
     }
 
     void Update()
@@ -95,6 +96,7 @@ public class GateControllerRoom : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
+            Debug.Log("FSDFSDFGSDFS");
             enemiesInRoom.Remove(other.gameObject);
         }
     }
