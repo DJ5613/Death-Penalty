@@ -38,6 +38,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void Start()
     {
+        enemyHP = enemyHP * SwitchDifficulty.dif_num;
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
         SwichState(idleState);

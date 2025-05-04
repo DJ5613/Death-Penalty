@@ -8,7 +8,7 @@ public class SwitchDifficulty : MonoBehaviour
     [SerializeField] GameObject easyDifficulty;
     [SerializeField] GameObject mediumDifficulty;
     [SerializeField] GameObject hardDifficulty;
-    private int dif_num = 1;
+    static public int dif_num = 1;
 
     public void NextDifficult(bool left_button, bool right_button)
     {
