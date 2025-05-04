@@ -1,15 +1,20 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BreakableObject : MonoBehaviour
 {
     public int hitsToDestroy = 3;
     private int hitCount = 0;
+    private AudioSource audioSource;
+
+    private void Awake() {audioSource = GetComponent<AudioSource>();}
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Weapon"))
         {
             hitCount++;
+            audioSource.Play();
 
             Debug.Log("Объект получил удар оружием! Счётчик: " + hitCount);
 
