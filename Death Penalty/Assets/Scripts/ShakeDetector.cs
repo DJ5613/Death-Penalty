@@ -1,90 +1,137 @@
 using UnityEngine;
 
-public class ShakeDetector : MonoBehaviour
+public class VRShakeDetector : MonoBehaviour
 {
-    [Header("Настройки тряски")]
-    [SerializeField] private float shakeSpeedThreshold = 2f; // Минимальная скорость для активации (м/с)
-    [SerializeField] private float shakeDistanceThreshold = 0.3f; // Минимальное смещение за интервал
-    [SerializeField] private float checkInterval = 0.1f; // Время между проверками (секунды)
-    [SerializeField] private int bufferSize = 5; // Размер буфера для сглаживания
-    private AudioSource audioSource;
+    [Header("Shake Settings")]
+    [SerializeField] private float shakeSpeedThreshold = 1.5f; // Более чувствительный порог скорости (м/с)
+    [SerializeField] private float shakeAccelThreshold = 3.0f; // Порог ускорения для обнаружения резких движений
+    [SerializeField] private float checkInterval = 0.1f; // Интервал проверки (секунды)
+    [SerializeField] private int positionHistorySize = 10; // Размер истории позиций
 
-    private Rigidbody rb;
-    public bool isGrabbed;
-    private Vector3[] positionBuffer;
-    private int bufferIndex;
+    [Header("References")]
+    [SerializeField] private AudioSource audioSource; // Ссылка на AudioSource
+    [SerializeField] private Rigidbody rb; // Ссылка на Rigidbody
+
+    private Vector3[] positionHistory;
+    private Vector3[] velocityHistory;
+    private int historyIndex;
     private float lastCheckTime;
+    private bool isGrabbed;
+    private Vector3 lastVelocity;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        positionBuffer = new Vector3[bufferSize];
+        if (rb == null) rb = GetComponent<Rigidbody>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
+
+        positionHistory = new Vector3[positionHistorySize];
+        velocityHistory = new Vector3[positionHistorySize];
+        historyIndex = 0;
     }
 
-    public void GrabStart() => isGrabbed = true;
+    public void GrabStart()
+    {
+        rb.isKinematic = false;
+        isGrabbed = true;
+
+    }
     public void GrabEnd() => isGrabbed = false;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (!isGrabbed) return;
+        if (!isGrabbed || rb == null) return;
 
+        // Записываем текущую позицию и скорость в историю
+        positionHistory[historyIndex] = rb.position;
+        velocityHistory[historyIndex] = rb.linearVelocity;
+        historyIndex = (historyIndex + 1) % positionHistorySize;
+
+        // Проверяем тряску с заданным интервалом
         if (Time.time - lastCheckTime >= checkInterval)
         {
-            UpdatePositionBuffer();
             CheckForShake();
             lastCheckTime = Time.time;
         }
-    }
 
-    private void UpdatePositionBuffer()
-    {
-        positionBuffer[bufferIndex] = rb.position;
-        bufferIndex = (bufferIndex + 1) % bufferSize;
+        lastVelocity = rb.linearVelocity;
     }
 
     private void CheckForShake()
     {
-        // 1. Проверка по мгновенной скорости (быстрая реакция)
+        // 1. Проверка мгновенной скорости
         if (rb.linearVelocity.magnitude > shakeSpeedThreshold)
         {
             TriggerShake();
             return;
         }
 
-        //// 2. Проверка по общему смещению (для медленных, но размашистых движений)
-        //Vector3 totalMovement = Vector3.zero;
-        //int validSamples = 0;
+        // 2. Проверка резкого изменения скорости (ускорения)
+        Vector3 acceleration = (rb.linearVelocity - lastVelocity) / Time.fixedDeltaTime;
+        if (acceleration.magnitude > shakeAccelThreshold)
+        {
+            TriggerShake();
+            return;
+        }
 
-        //for (int i = 0; i < bufferSize - 1; i++)
-        //{
-        //    int currentIndex = (bufferIndex + i) % bufferSize;
-        //    int nextIndex = (bufferIndex + i + 1) % bufferSize;
+        // 3. Проверка сложного движения (изменение направления)
+        float directionChange = CalculateDirectionVariance();
+        if (directionChange > 0.8f && rb.linearVelocity.magnitude > shakeSpeedThreshold * 0.7f)
+        {
+            TriggerShake();
+        }
+    }
 
-        //    if (positionBuffer[nextIndex] == Vector3.zero ||
-        //        positionBuffer[currentIndex] == Vector3.zero)
-        //        continue;
+    private float CalculateDirectionVariance()
+    {
+        Vector3 avgDirection = Vector3.zero;
+        int validSamples = 0;
 
-        //    totalMovement += positionBuffer[nextIndex] - positionBuffer[currentIndex];
-        //    validSamples++;
-        //}
+        // Вычисляем среднее направление
+        for (int i = 0; i < velocityHistory.Length; i++)
+        {
+            if (velocityHistory[i] != Vector3.zero)
+            {
+                avgDirection += velocityHistory[i].normalized;
+                validSamples++;
+            }
+        }
 
-        //if (validSamples > 0 && totalMovement.magnitude / validSamples > shakeDistanceThreshold)
-        //{
-        //    TriggerShake();
-        //}
+        if (validSamples == 0) return 0f;
+
+        avgDirection /= validSamples;
+        float variance = 0f;
+
+        // Вычисляем дисперсию направлений
+        for (int i = 0; i < velocityHistory.Length; i++)
+        {
+            if (velocityHistory[i] != Vector3.zero)
+            {
+                variance += Vector3.Distance(velocityHistory[i].normalized, avgDirection);
+            }
+        }
+
+        return variance / validSamples;
     }
 
     private void TriggerShake()
     {
-        Debug.Log("Объект тряхнули! Активируем бафф");
-        // Ваш код активации баффа здесь
-        audioSource.Play();
+        Debug.Log("Shake detected! Velocity: " + rb.linearVelocity.magnitude + " m/s");
 
-        // Пример: визуальная обратная связь
-        GetComponent<Renderer>().material.color = new Color(
-            Random.value,
-            Random.value,
-            Random.value
-        );
+        // Воспроизведение звука
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        // Визуальная обратная связь
+        Renderer rend = GetComponent<Renderer>();
+        if (rend != null)
+        {
+            rend.material.color = new Color(
+                Random.Range(0.7f, 1f),
+                Random.Range(0.7f, 1f),
+                Random.Range(0.7f, 1f)
+            );
+        }
     }
 }
