@@ -10,7 +10,7 @@ public class ShakeDetector : MonoBehaviour
     private AudioSource audioSource;
 
     private Rigidbody rb;
-    private bool isGrabbed;
+    public bool isGrabbed;
     private Vector3[] positionBuffer;
     private int bufferIndex;
     private float lastCheckTime;
