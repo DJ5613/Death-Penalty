@@ -59,6 +59,7 @@ public class EnemyStateManager : MonoBehaviour
             sword.transform.SetParent(null);
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
+            transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
             //rb.useGravity = true;
             Debug.Log("¬–¿√ ”Ã≈–");
             Collider collider = GetComponent<Collider>();
