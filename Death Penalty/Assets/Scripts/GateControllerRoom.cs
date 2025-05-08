@@ -10,6 +10,8 @@ public class GateControllerRoom : MonoBehaviour
     public float moveSpeed = 2.5f;
     public string enemyTag = "skeleton";
 
+    [SerializeField] private GameObject[] buffs;
+
     private enum GateState { Closed, Opening, Opened, Closing }
     private GateState gateState = GateState.Closed;
 
@@ -57,6 +59,7 @@ public class GateControllerRoom : MonoBehaviour
                 if (enemiesInRoom.Count == 0)
                 {
                     gateState = GateState.Closing;
+
                 }
                 break;
         }
@@ -104,5 +107,11 @@ public class GateControllerRoom : MonoBehaviour
     public void RemoveEnemy(GameObject enemy)
     {
         enemiesInRoom.Remove(enemy);
+    }
+
+    public void SpawnBuff()
+    {
+        int randomIndex = Random.Range(0, buffs.Length);
+
     }
 }

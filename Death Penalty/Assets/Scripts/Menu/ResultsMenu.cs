@@ -1,84 +1,23 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Для работы с обычным UI Text
-using TMPro; // Для TextMeshPro
 
 public class ResultsMenu : MonoBehaviour
 {
-    [Header("Настройки таймера")]
-    [SerializeField] private float startTime = 60f; // Время в секундах
-    [SerializeField] private bool countDown = false; // true = обратный отсчет, false = прямой
+    [SerializeField] private TextMeshProUGUI timer;
+    [SerializeField] private TextMeshProUGUI kill_enemies;
+    [SerializeField] private TextMeshProUGUI diff;
 
-    [Header("Текстовый вывод (опционально)")]
-    [SerializeField] private TextMeshProUGUI timerTextUI; // Для TextMeshPro
+    static public int kill_score = 0;
 
-    private float currentTime;
-    private bool isTimerRunning = false;
-
-    void Start()
+    private string[] difficults = { "Лёгкая", "Средняя", "Сложная" };
+    private void OnEnable()
     {
-        StartTimer();
-    }
+        int minutes = Mathf.FloorToInt(Timer.currentTime / 60f);
+        int seconds = Mathf.FloorToInt(Timer.currentTime % 60f);
+        timer.text = "Время: " + string.Format("{0:00}:{1:00}", minutes, seconds);
 
-    void Update()
-    {
-        if (isTimerRunning && Time.timeScale == 1f)
-        {
-            UpdateTimer();
-        }
-    }
+        kill_enemies.text = "Врагов убито: " + kill_score.ToString();
 
-    // Запуск таймера
-    public void StartTimer()
-    {
-        currentTime = countDown ? startTime : 0f;
-        isTimerRunning = true;
-    }
-
-    // Обновление таймера каждый кадр
-    private void UpdateTimer()
-    {
-        if (countDown)
-        {
-            currentTime -= Time.deltaTime;
-            if (currentTime <= 0f)
-            {
-                currentTime = 0f;
-                StopTimer();
-                OnTimerEnd();
-            }
-        }
-        else
-        {
-            currentTime += Time.deltaTime;
-        }
-
-        UpdateUIText();
-    }
-
-    // Остановка таймера
-    public void StopTimer()
-    {
-        isTimerRunning = false;
-    }
-
-    // Действия при завершении времени
-    private void OnTimerEnd()
-    {
-        Debug.Log("Таймер закончился!");
-        // Здесь можно добавить:
-        // - Завершение уровня
-        // - Активацию события
-        // - Показ экрана "Время вышло"
-    }
-
-    // Обновление текста UI (если подключен)
-    private void UpdateUIText()
-    {
-        if (timerTextUI != null)
-        {
-            int minutes = Mathf.FloorToInt(currentTime / 60f);
-            int seconds = Mathf.FloorToInt(currentTime % 60f);
-            timerTextUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
+        diff.text = "Сложность: " + difficults[SwitchDifficulty.dif_num - 1];
     }
 }

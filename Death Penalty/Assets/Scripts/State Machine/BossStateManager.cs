@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
@@ -24,6 +25,8 @@ public class BossStateManager : MonoBehaviour
     public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
     public static bool playerInRoom = true;
+
+    [SerializeField] private GameObject resultMenu;
     public void SwichState(BaseState newState)
     {
         if (currentState != null)
@@ -68,7 +71,9 @@ public class BossStateManager : MonoBehaviour
         if (enemyHP <= 0)
         {
             //animator.SetBool("IsDeath", true);
+            ResultsMenu.kill_score += 1;
             Debug.Log("аняя слеп");
+            resultMenu.SetActive(true);
         }
     }
 

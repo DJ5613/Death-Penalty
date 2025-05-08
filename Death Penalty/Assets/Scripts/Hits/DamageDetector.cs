@@ -5,6 +5,7 @@ public class DamageDetector : MonoBehaviour
 {
     [SerializeField] static public float playerHP = 100;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private GameObject resultMenu;
 
     public void OnDamageDetected(float damage)
     {        
@@ -14,6 +15,7 @@ public class DamageDetector : MonoBehaviour
         if (playerHP <= 0)
         {
             Debug.Log("ÒÛ ÓÌÅÐ ËÎÕ ÕÀÕÀÕÀÕÀÕÀÕÀÕÕ");
+            resultMenu.SetActive(true);
         }
     }
 }

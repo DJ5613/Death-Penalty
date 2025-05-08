@@ -36,7 +36,7 @@ public class BuffSystem : MonoBehaviour
         BuffType selectedBuff = availableBuffs[randomIndex];
 
         // Удаляем выбранный бафф из списка доступных
-        availableBuffs.RemoveAt(randomIndex);
+        //availableBuffs.RemoveAt(randomIndex);
 
         // Применяем бафф
         ApplyBuff(selectedBuff);
