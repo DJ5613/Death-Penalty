@@ -1,10 +1,9 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DamageDetector : MonoBehaviour
 {
-    [SerializeField] static float playerHP = 100;
+    [SerializeField] static public float playerHP = 100;
     [SerializeField] private TextMeshProUGUI text;
 
     public void OnDamageDetected(float damage)
