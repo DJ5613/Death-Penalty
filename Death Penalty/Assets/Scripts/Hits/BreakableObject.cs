@@ -21,6 +21,10 @@ public class BreakableObject : MonoBehaviour
             if (hitCount >= hitsToDestroy)
             {
                 Destroy(gameObject);
+                if (Random.Range(0, 101) > 70)
+                {
+                    DamageDetector.playerHP += 20;
+                }
                 Debug.Log("Объект разрушен!");
             }
         }
