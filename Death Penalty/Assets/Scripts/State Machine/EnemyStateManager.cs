@@ -38,7 +38,21 @@ public class EnemyStateManager : MonoBehaviour
 
     private void Start()
     {
-        enemyHP = enemyHP * SwitchDifficulty.dif_num;
+        switch (SwitchDifficulty.dif_num)
+        {
+            case 1:
+                wolkSpeed = (float)(wolkSpeed * 0.7);
+                enemyHP = (float)(enemyHP * 0.5);
+                enemyDamage = (float)(enemyDamage * 0.5);
+                break;
+            case 2:
+                break;
+            case 3:
+                wolkSpeed = (float)(wolkSpeed * 1.2);
+                enemyHP = (float)(enemyHP * 1.5);
+                enemyDamage = (float)(enemyDamage * 1.5);
+                break;
+        }
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
         SwichState(idleState);
