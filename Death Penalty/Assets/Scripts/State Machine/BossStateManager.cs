@@ -8,7 +8,7 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
-    public float wolkSpeed;
+    public float walkSpeed;
     public float agroDistance;
     //public float simpleAttackDistance;
     //public float comboAttackDistance;
@@ -21,8 +21,8 @@ public class BossStateManager : MonoBehaviour
     BaseState currentState;
     public IdleState idleState = new IdleState();
     public AgroState agroState = new AgroState();
-    public SimpleAttackState simpleAttackState = new SimpleAttackState();
-    public ComboAttackState comboAttackState = new ComboAttackState();
+    //public SimpleAttackState simpleAttackState = new SimpleAttackState();
+    //public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
     public static bool playerInRoom = true;
 
@@ -42,14 +42,14 @@ public class BossStateManager : MonoBehaviour
         switch (SwitchDifficulty.dif_num)
         {
             case 1:
-                wolkSpeed = (float)(wolkSpeed * 0.7);
+                walkSpeed = (float)(walkSpeed * 0.7);
                 enemyHP = (float)(enemyHP * 0.5);
                 enemyDamage = (float)(enemyDamage * 0.5);
                 break;
             case 2:
                 break;
             case 3:
-                wolkSpeed = (float)(wolkSpeed * 1.2);
+                walkSpeed = (float)(walkSpeed * 1.2);
                 enemyHP = (float)(enemyHP * 1.5);
                 enemyDamage = (float)(enemyDamage * 1.5);
                 break;
@@ -63,6 +63,8 @@ public class BossStateManager : MonoBehaviour
     {
         if (playerInRoom)
         {
+            float speed = navMeshAgent.velocity.magnitude;
+            animator.SetFloat("Speed", speed); // "Speed" Ч параметр в аниматоре
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
