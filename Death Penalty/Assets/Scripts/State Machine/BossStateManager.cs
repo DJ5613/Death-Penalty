@@ -68,7 +68,7 @@ public class BossStateManager : MonoBehaviour
         if (enemyHP <= 0)
         {
             //animator.SetBool("IsDeath", true);
-            Debug.Log("ÂÐÀÃ ÓÌÅÐ");
+            Debug.Log("ÁÎÑÑ ÓÌÅÐ");
         }
     }
 
