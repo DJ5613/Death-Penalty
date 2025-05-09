@@ -1,7 +1,5 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 
 public class BossStateManager : MonoBehaviour
 {
@@ -197,3 +195,150 @@ public class BossStateManager : MonoBehaviour
         }
     }
 }
+
+//using UnityEngine;
+//using UnityEngine.AI;
+
+//public class BossStateManager : MonoBehaviour
+//{
+//    [Header("References")]
+//    [SerializeField] private NavMeshAgent navMeshAgent;
+//    [SerializeField] private Transform player;
+//    [SerializeField] private Animator animator;
+//    [SerializeField] private GameObject resultMenu;
+
+//    [Header("Settings")]
+//    public float walkSpeed = 3.5f;
+//    public float agroDistance = 10f;
+//    public float enemyHP = 100f;
+//    public float enemyDamage = 10f;
+
+//    // States
+//    private BaseState currentState;
+//    public IdleState idleState = new IdleState();
+//    public AgroState agroState = new AgroState();
+//    public DeathState deathState = new DeathState();
+//    public static bool playerInRoom = true;
+
+//    private NavMeshPath _cachedPath;
+//    private Transform _target;
+//    private bool _shouldRotate;
+
+//    private void Start()
+//    {
+//        ApplyDifficultySettings();
+//        InitializeComponents();
+//        SwichState(idleState);
+//    }
+
+//    private void ApplyDifficultySettings()
+//    {
+//        switch (SwitchDifficulty.dif_num)
+//        {
+//            case 1:
+//                walkSpeed *= 0.7f;
+//                enemyHP *= 0.5f;
+//                enemyDamage *= 0.5f;
+//                break;
+//            case 3:
+//                walkSpeed *= 1.2f;
+//                enemyHP *= 1.5f;
+//                enemyDamage *= 1.5f;
+//                break;
+//        }
+//    }
+
+//    public void SwichState(BaseState newState)
+//    {
+//        if (currentState != null)
+//        {
+//            currentState.ExitState(this);
+//        }
+//        currentState = newState;
+//        currentState.EnterState(this);
+//    }
+
+//    private void InitializeComponents()
+//    {
+//        if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
+//        _cachedPath = new NavMeshPath();
+
+//        navMeshAgent.updatePosition = false;
+//        navMeshAgent.updateRotation = false;
+//        navMeshAgent.speed = walkSpeed;
+//    }
+
+//    private void Update()
+//    {
+//        if (!playerInRoom) return;
+
+//        HandleStateUpdates();
+//        HandleDeathCondition();
+//    }
+
+//    private void HandleStateUpdates()
+//    {
+//        navMeshAgent.destination = _target.position;
+//        currentState.UpdateState(this);
+
+//        if (_shouldRotate)
+//            RotateTowardsTarget();
+//    }
+
+//    private void HandleDeathCondition()
+//    {
+//        if (enemyHP <= 0)
+//        {
+//            ResultsMenu.kill_score += 1;
+//            resultMenu.SetActive(true);
+//            SwichState(deathState);
+//        }
+//    }
+
+//    private void OnAnimatorMove()
+//    {
+//        // Полная синхронизация позиции и вращения с анимацией
+//        transform.position = animator.rootPosition;
+//        transform.rotation = animator.rootRotation;
+
+//        // Корректируем позицию NavMeshAgent
+//        navMeshAgent.nextPosition = transform.position;
+//    }
+
+//    public void SetSpeed(float newSpeed) => navMeshAgent.speed = newSpeed;
+//    public void SetDestination(Transform newDestination) => _target = newDestination;
+//    public void SetRotation(bool shouldRotate) => _shouldRotate = shouldRotate;
+
+//    public float DistanceToTarget()
+//    {
+//        if (_target == null) return Mathf.Infinity;
+
+//        if (NavMesh.CalculatePath(transform.position, _target.position, NavMesh.AllAreas, _cachedPath))
+//        {
+//            float distance = 0f;
+//            for (int i = 1; i < _cachedPath.corners.Length; i++)
+//                distance += Vector3.Distance(_cachedPath.corners[i - 1], _cachedPath.corners[i]);
+//            return distance;
+//        }
+
+//        return Vector3.Distance(transform.position, _target.position);
+//    }
+
+//    private void RotateTowardsTarget()
+//    {
+//        if (_target == null) return;
+
+//        Vector3 direction = (_target.position - transform.position).normalized;
+//        direction.y = 0;
+
+//        if (direction != Vector3.zero)
+//        {
+//            Quaternion targetRotation = Quaternion.LookRotation(direction);
+//            transform.rotation = Quaternion.Slerp(
+//                transform.rotation,
+//                targetRotation,
+//                Time.deltaTime * navMeshAgent.angularSpeed / 120f // Динамическая скорость поворота
+//            );
+//        }
+//    }
+//}
