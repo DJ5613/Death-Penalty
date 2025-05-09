@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
 
     [Header("Текстовый вывод (опционально)")]
     [SerializeField] private TextMeshProUGUI timerTextUI; // Для TextMeshPro
+    [SerializeField] private TextMeshProUGUI text;
 
     [NonSerialized] static public float currentTime;
     private bool isTimerRunning = false;
@@ -21,6 +22,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        text.text = "Ваше хп: " + DamageDetector.playerHP.ToString();
         if (isTimerRunning && Time.timeScale == 1f)
         {
             UpdateTimer();

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using UnityEngine;
 
 public class GateControllerRoom : MonoBehaviour
@@ -58,6 +57,7 @@ public class GateControllerRoom : MonoBehaviour
             case GateState.Opened:
                 if (enemiesInRoom.Count == 0)
                 {
+                    gameObject.GetComponent<SpawnBuffs>().SpawnBuffNow();
                     gateState = GateState.Closing;
 
                 }
@@ -99,7 +99,7 @@ public class GateControllerRoom : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-            Debug.Log("FSDFSDFGSDFS");
+           // Debug.Log("FSDFSDFGSDFS");
             enemiesInRoom.Remove(other.gameObject);
         }
     }

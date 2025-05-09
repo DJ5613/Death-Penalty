@@ -8,7 +8,7 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
     [SerializeField] GameObject sword;
-    public float wolkSpeed;
+    static public float wolkSpeed;
     public float agroDistance;
     public float simpleAttackDistance;
     public float comboAttackDistance;
