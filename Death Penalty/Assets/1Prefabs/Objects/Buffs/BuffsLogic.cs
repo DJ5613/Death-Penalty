@@ -18,7 +18,7 @@ public class BuffsLogic : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Zamedlo":
-                EnemyStateManager.wolkSpeed *= 0.8f;
+                //EnemyStateManager.wolkSpeed *= 0.8f;
                 Destroy(gameObject);
                 break;
         }
