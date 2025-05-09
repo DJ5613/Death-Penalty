@@ -13,7 +13,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 0
+    optimizeGameObjects: 1
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
@@ -54,7 +54,35 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.9180431
+        functionName: Rotation
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.9993875
+        functionName: Rotation
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.26965466
+        functionName: Rotation
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.30357033
+        functionName: Rotation
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -341,8 +369,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
       parentName: Great Sword Slash (2)(Clone)
-      position: {x: -0.07679294, y: 57.431873, z: -1.1868111}
-      rotation: {x: -0.17988689, y: -0.056031443, z: -0.019018894, w: 0.981906}
+      position: {x: -0.1, y: 53.9, z: -2.8}
+      rotation: {x: -0.1798869, y: -0.056031447, z: -0.019018896, w: 0.98190606}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Spine
       parentName: mixamorig:Hips
@@ -382,7 +410,7 @@ ModelImporter:
     - name: mixamorig:LeftArm
       parentName: mixamorig:LeftShoulder
       position: {x: -0, y: 9.6514, z: 0}
-      rotation: {x: 0.051212315, y: -0.058336005, z: 0.15310678, w: 0.98515606}
+      rotation: {x: 0.051212322, y: -0.058336005, z: 0.15310681, w: 0.98515606}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:LeftForeArm
       parentName: mixamorig:LeftArm
@@ -422,12 +450,12 @@ ModelImporter:
     - name: mixamorig:RightArm
       parentName: mixamorig:RightShoulder
       position: {x: -0, y: 9.6514, z: 0}
-      rotation: {x: 0.09664565, y: 0.07003424, z: -0.12458218, w: 0.9850046}
+      rotation: {x: 0.09664567, y: 0.07003424, z: -0.124582194, w: 0.9850046}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:RightForeArm
       parentName: mixamorig:RightArm
       position: {x: -0, y: 18.7207, z: 0}
-      rotation: {x: -0.003656305, y: -0.061493784, z: 0.016755026, w: 0.9979602}
+      rotation: {x: -0.003656304, y: -0.061493784, z: 0.016755022, w: 0.9979602}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:RightHand
       parentName: mixamorig:RightForeArm
@@ -437,7 +465,7 @@ ModelImporter:
     - name: mixamorig:RightHandIndex1
       parentName: mixamorig:RightHand
       position: {x: -0, y: 5.828, z: 0}
-      rotation: {x: 0.06846331, y: 0.06908583, z: -0.025150105, w: 0.9949409}
+      rotation: {x: 0.06846332, y: 0.06908584, z: -0.025150107, w: 0.99494094}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:RightHandIndex2
       parentName: mixamorig:RightHandIndex1
@@ -471,7 +499,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:LeftToeBase
       parentName: mixamorig:LeftFoot
-      position: {x: -0, y: 12.3308, z: 0}
+      position: {x: -0.71, y: 11.7, z: -1.55}
       rotation: {x: 0.27343467, y: 0.10587144, z: -0.017865302, w: 0.95587945}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:LeftToe_End
