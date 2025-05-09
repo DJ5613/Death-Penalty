@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BuffsLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] private string buff;
     public void onGrab()
@@ -18,7 +17,7 @@ public class BuffsLogic : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Zamedlo":
-                //EnemyStateManager.wolkSpeed *= 0.8f;
+                EnemyStateManager.slow = 0.8f;
                 Destroy(gameObject);
                 break;
         }

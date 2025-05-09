@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
@@ -16,6 +17,7 @@ public class EnemyStateManager : MonoBehaviour
     public float enemyHP;
     public float enemyDamage;
     public bool rotationFlag = true;
+    [NonSerialized] static public float slow = 1;
     Transform target;
     NavMeshPath _cachedPath;
 
@@ -62,6 +64,7 @@ public class EnemyStateManager : MonoBehaviour
     {        
         if (playerInRoom)
         {
+            wolkSpeed *= slow;
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
