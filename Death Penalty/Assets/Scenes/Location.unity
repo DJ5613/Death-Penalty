@@ -11132,6 +11132,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2112788643}
     m_Modifications:
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8334693
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.027676847
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.041920733
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.55027777
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -5.759
+      objectReference: {fileID: 0}
+    - target: {fileID: -7233486654594710654, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 66.868
+      objectReference: {fileID: 0}
     - target: {fileID: -6689036041284674117, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_Name
       value: dragon_slayer_-_berserk_sword
@@ -11150,43 +11182,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38
+      value: -38.8
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.3
+      value: 15.7
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.650026
+      value: 0.6309573
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4878687
+      value: -0.4775042
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5129162
+      value: -0.5361994
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.27634633
+      value: 0.2938928
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -20.534
+      value: -16.702
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.134
+      value: -91.857
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 66.645
+      value: 67.196
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 23a85d40068b07b42846784265b67c9b, type: 3}
       propertyPath: m_ConstrainProportionsScale
