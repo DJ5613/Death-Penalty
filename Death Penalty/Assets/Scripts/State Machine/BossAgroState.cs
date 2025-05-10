@@ -1,16 +1,132 @@
 using UnityEngine;
 
-public class BossAgroState : MonoBehaviour
+public class BossAgroState : BaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void EnterState(BossStateManager manager)
     {
-        
+        manager.animator.SetBool("IsAgro", true);
+        manager.animator.SetBool("IsUndercuting", false);
+        manager.animator.SetBool("IsComboAttacking", false);
+        manager.animator.SetBool("IsDownAttacking", false);
+        manager.animator.SetBool("IsTired", false);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void UpdateState(BossStateManager manager)
     {
-        
+        //if (manager.DistanceToTarget() >= manager.agroDistance)
+        //{
+        //    manager.SwichState(manager.idleState);
+        //    return;
+        //}
+
+        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        {
+            manager.SwichState(manager.comboAttackState);
+            return;
+        }
+    }
+}
+
+public class BossComboState : BaseState
+{
+    public override void EnterState(BossStateManager manager)
+    {
+        manager.animator.SetBool("IsAgro", false);
+        manager.animator.SetBool("IsUndercuting", false);
+        manager.animator.SetBool("IsComboAttacking", true);
+        manager.animator.SetBool("IsDownAttacking", false);
+        manager.animator.SetBool("IsTired", false);
+    }
+    public override void UpdateState(BossStateManager manager)
+    {
+        if (manager.DistanceToTarget() >= manager.agroDistance)
+        {
+            manager.SwichState(manager.idleState);
+            return;
+        }
+
+        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        {
+            manager.SwichState(manager.comboAttackState);
+            return;
+        }
+    }
+}
+
+public class BossDeathState : BaseState
+{
+    public override void EnterState(BossStateManager manager)
+    {
+        manager.animator.SetBool("IsAgro", false);
+        manager.animator.SetBool("IsUndercuting", false);
+        manager.animator.SetBool("IsComboAttacking", false);
+        manager.animator.SetBool("IsDownAttacking", false);
+        manager.animator.SetBool("IsTired", false);
+        manager.animator.SetBool("IsDeath", true) ;
+    }
+    public override void UpdateState(BossStateManager manager)
+    {
+        if (manager.DistanceToTarget() >= manager.agroDistance)
+        {
+            manager.SwichState(manager.idleState);
+            return;
+        }
+
+        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        {
+            manager.SwichState(manager.comboAttackState);
+            return;
+        }
+    }
+}
+
+public class BossUndercutState : BaseState
+{
+    public override void EnterState(BossStateManager manager)
+    {
+        manager.animator.SetBool("IsAgro", false);
+        manager.animator.SetBool("IsUndercuting", true);
+        manager.animator.SetBool("IsComboAttacking", false);
+        manager.animator.SetBool("IsDownAttacking", false);
+        manager.animator.SetBool("IsTired", false);
+    }
+    public override void UpdateState(BossStateManager manager)
+    {
+        if (manager.DistanceToTarget() >= manager.agroDistance)
+        {
+            manager.SwichState(manager.idleState);
+            return;
+        }
+
+        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        {
+            manager.SwichState(manager.comboAttackState);
+            return;
+        }
+    }
+}
+
+public class BossDownAttackState : BaseState
+{
+    public override void EnterState(BossStateManager manager)
+    {
+        manager.animator.SetBool("IsAgro", false);
+        manager.animator.SetBool("IsUndercuting", false);
+        manager.animator.SetBool("IsComboAttacking", false);
+        manager.animator.SetBool("IsDownAttacking", true);
+        manager.animator.SetBool("IsTired", false);
+    }
+    public override void UpdateState(BossStateManager manager)
+    {
+        if (manager.DistanceToTarget() >= manager.agroDistance)
+        {
+            manager.SwichState(manager.idleState);
+            return;
+        }
+
+        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        {
+            manager.SwichState(manager.comboAttackState);
+            return;
+        }
     }
 }

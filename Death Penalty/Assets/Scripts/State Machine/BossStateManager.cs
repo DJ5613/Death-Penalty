@@ -8,10 +8,11 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] public Animator animator;
     public float walkSpeed;
     public float agroDistance;
-    //public float simpleAttackDistance;
-    //public float comboAttackDistance;
+    public float simpleAttackDistance;
+    public float comboAttackDistance;
     //public float comboAttackSpeed;
     public float enemyHP;
+    private float halfHP;
     public float enemyDamage;
     Transform target;
     NavMeshPath _cachedPath;
@@ -20,7 +21,7 @@ public class BossStateManager : MonoBehaviour
     public IdleState idleState = new IdleState();
     public AgroState agroState = new AgroState();
     //public SimpleAttackState simpleAttackState = new SimpleAttackState();
-    //public ComboAttackState comboAttackState = new ComboAttackState();
+    public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
     public static bool playerInRoom = true;
 
@@ -40,7 +41,7 @@ public class BossStateManager : MonoBehaviour
     }
 
     private void Start()
-    {
+    {        
         switch (SwitchDifficulty.dif_num)
         {
             case 1:
@@ -56,6 +57,8 @@ public class BossStateManager : MonoBehaviour
                 enemyDamage = (float)(enemyDamage * 1.5);
                 break;
         }
+        halfHP = enemyHP / 2;
+        Debug.Log($"ÔÓÎÓ‚ËÌ‡ ıÔ: {halfHP}");
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
         SwichState(idleState);
@@ -81,6 +84,10 @@ public class BossStateManager : MonoBehaviour
             ResultsMenu.kill_score += 1;
             Debug.Log("¡Œ—— ”Ã≈–");
             resultMenu.SetActive(true);
+        }
+        if (enemyHP <= halfHP)
+        {
+            animator.SetBool("SecondStage", true);
         }
         SynchronizeAnimatorAndAgent();
         //if (navMeshAgent.velocity.sqrMagnitude > 0.01f)
@@ -193,6 +200,25 @@ public class BossStateManager : MonoBehaviour
                 smooth
             );
         }
+    }
+
+    void CheckState()
+    {
+        //if (DistanceToTarget() >= comboAttackDistance)
+        //{
+        //    SwichState(agroState);
+        //    return;
+        //}
+        //if (DistanceToTarget() > simpleAttackDistance && DistanceToTarget() < comboAttackDistance)
+        //{
+        //    SwichState(comboAttackState);
+        //    return;
+        //}
+        //if (DistanceToTarget() <= simpleAttackDistance)
+        //{
+        //    SwichState(simpleAttackState);
+        //    return;
+        //}
     }
 }
 
