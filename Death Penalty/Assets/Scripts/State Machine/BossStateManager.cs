@@ -21,8 +21,9 @@ public class BossStateManager : MonoBehaviour
     BaseState currentState;
     public BossAgroState bossAgroState = new BossAgroState();
     public BossComboState bossComboState = new BossComboState();
-    public BossDownAttackState bossDownAttackState = new BossDownAttackState();
-    public BossUndercutState bossUndercutState = new BossUndercutState();
+    public BossAttackState bossAttackState = new BossAttackState();
+    //public BossDownAttackState bossDownAttackState = new BossDownAttackState();
+    //public BossUndercutState bossUndercutState = new BossUndercutState();
     public BossDeathState bossDeathState = new BossDeathState();
     public static bool playerInRoom = true;
 
@@ -30,7 +31,7 @@ public class BossStateManager : MonoBehaviour
     private Vector2 SmoothDeltaPosition;
     int attackNum = 0;
     int maxAttackNum = 3;
-    private bool isRotate;
+    private bool isRotate = true;
     public int AttackNum
     {
         get { return attackNum; }
@@ -80,8 +81,6 @@ public class BossStateManager : MonoBehaviour
     {
         if (playerInRoom)
         {
-            float speed = navMeshAgent.velocity.magnitude;
-            animator.SetFloat("Speed", speed); // "Speed" — параметр в аниматоре
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
@@ -90,7 +89,6 @@ public class BossStateManager : MonoBehaviour
         }
         if (enemyHP <= 0)
         {
-            //animator.SetBool("IsDeath", true);
             ResultsMenu.kill_score += 1;
             Debug.Log("БОСС УМЕР");
             resultMenu.SetActive(true);
@@ -207,6 +205,19 @@ public class BossStateManager : MonoBehaviour
         }
     }
 
+    void SwichAttack()
+    {
+        if (animator.GetBool("IsUndercuting"))
+        {
+            animator.SetBool("IsUndercuting", false);
+            animator.SetBool("IsDownAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("IsUndercuting", true);
+            animator.SetBool("IsDownAttacking", false);
+        }
+    }
     void CheckState()
     {
         //if (DistanceToTarget() >= comboAttackDistance)

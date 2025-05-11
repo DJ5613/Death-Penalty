@@ -84,7 +84,6 @@ public class EnemyStateManager : MonoBehaviour
             collider.enabled = false;
             BoxCollider boxCollider = GetComponent<BoxCollider>();
             boxCollider.center -= new Vector3(0,5,0);
-            
         }
     }
 
