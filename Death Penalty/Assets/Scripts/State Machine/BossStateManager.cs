@@ -6,7 +6,7 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
-    public float walkSpeed;
+    public float walkSpeed; //по сути бесполезная
     public float agroDistance;
     public float simpleAttackDistance;
     public float comboAttackDistance;
@@ -46,7 +46,7 @@ public class BossStateManager : MonoBehaviour
             currentState.ExitState(this);
         }
         currentState = newState;
-        currentState.EnterState(this);
+        //currentState.EnterState(this);
     }
 
     private void Start()

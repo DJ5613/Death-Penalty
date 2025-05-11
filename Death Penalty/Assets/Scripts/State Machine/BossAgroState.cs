@@ -12,17 +12,17 @@ public class BossAgroState : BaseState
     }
     public override void UpdateState(BossStateManager manager)
     {
-        //if (manager.DistanceToTarget() >= manager.agroDistance)
+        ////if (manager.DistanceToTarget() >= manager.agroDistance)
+        ////{
+        ////    manager.SwichState(manager.idleState);
+        ////    return;
+        ////}
+
+        //if (manager.DistanceToTarget() <= manager.comboAttackDistance)
         //{
-        //    manager.SwichState(manager.idleState);
+        //    manager.SwichState(manager.bossComboState);
         //    return;
         //}
-
-        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
     }
 }
 
@@ -38,17 +38,17 @@ public class BossComboState : BaseState
     }
     public override void UpdateState(BossStateManager manager)
     {
-        if (manager.DistanceToTarget() >= manager.agroDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
+        //if (manager.DistanceToTarget() >= manager.agroDistance)
+        //{
+        //    manager.SwichState(manager.bossComboState);
+        //    return;
+        //}
 
-        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
-        {
-            manager.SwichState(manager.comboAttackState);
-            return;
-        }
+        //if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        //{
+        //    manager.SwichState(manager.comboAttackState);
+        //    return;
+        //}
     }
 }
 
@@ -65,17 +65,17 @@ public class BossDeathState : BaseState
     }
     public override void UpdateState(BossStateManager manager)
     {
-        if (manager.DistanceToTarget() >= manager.agroDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
+        //if (manager.DistanceToTarget() >= manager.agroDistance)
+        //{
+        //    manager.SwichState(manager.bossComboState);
+        //    return;
+        //}
 
-        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
-        {
-            manager.SwichState(manager.comboAttackState);
-            return;
-        }
+        //if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        //{
+        //    manager.SwichState(manager.comboAttackState);
+        //    return;
+        //}
     }
 }
 
@@ -91,17 +91,17 @@ public class BossUndercutState : BaseState
     }
     public override void UpdateState(BossStateManager manager)
     {
-        if (manager.DistanceToTarget() >= manager.agroDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
+        //if (manager.DistanceToTarget() >= manager.agroDistance)
+        //{
+        //    manager.SwichState(manager.bossComboState);
+        //    return;
+        //}
 
-        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
+        //if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        //{
+        //    manager.SwichState(manager.bossComboState);
+        //    return;
+        //}
     }
 }
 
@@ -117,16 +117,16 @@ public class BossDownAttackState : BaseState
     }
     public override void UpdateState(BossStateManager manager)
     {
-        if (manager.DistanceToTarget() >= manager.agroDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
+        //if (manager.DistanceToTarget() >= manager.agroDistance)
+        //{
+        //    manager.SwichState(manager.bossComboState);
+        //    return;
+        //}
 
-        if (manager.DistanceToTarget() <= manager.comboAttackDistance)
-        {
-            manager.SwichState(manager.bossComboState);
-            return;
-        }
+        //if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        //{
+        //    manager.SwichState(manager.bossComboState);
+        //    return;
+        //}
     }
 }
