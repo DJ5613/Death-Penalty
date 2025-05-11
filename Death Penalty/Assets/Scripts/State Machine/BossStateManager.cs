@@ -35,10 +35,13 @@ public class BossStateManager : MonoBehaviour
     public int AttackNum
     {
         get { return attackNum; }
-        set { if (value > maxAttackNum) attackNum = 1; }
+        set 
+        { 
+            if (value > maxAttackNum) attackNum = 1;
+            else attackNum = value;
+        }
     }
-
-    public BaseState comboAttackState { get; internal set; }
+    public int MaxAttackNum { get;}
 
     [SerializeField] private GameObject resultMenu;
     public void SwichState(BaseState newState)
@@ -84,6 +87,7 @@ public class BossStateManager : MonoBehaviour
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
+            if (attackNum == maxAttackNum) animator.SetBool("IsTired", true);
             //if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
             if (isRotate) RotateTowardsTarget();
         }
@@ -96,6 +100,7 @@ public class BossStateManager : MonoBehaviour
         if (enemyHP <= halfHP)
         {
             animator.SetBool("SecondStage", true);
+            maxAttackNum = 5;
         }
         SynchronizeAnimatorAndAgent();        
     }

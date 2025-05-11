@@ -1,3 +1,4 @@
+using GLTFast.Schema;
 using UnityEngine;
 
 public class BossAgroState : BaseState
@@ -18,7 +19,7 @@ public class BossAgroState : BaseState
             manager.SwichState(manager.bossAttackState);
             return;
         }
-        if ((manager.DistanceToTarget() > (manager.comboAttackDistance- manager.comboAttackRange)) 
+        if (((manager.DistanceToTarget() > (manager.comboAttackDistance- manager.comboAttackRange))) 
             && (manager.DistanceToTarget() <= manager.comboAttackDistance) && manager.animator.GetBool("SecondStage"))
         {
             manager.SwichState(manager.bossComboState);
@@ -33,10 +34,13 @@ public class BossComboState : BaseState
     {
         Debug.Log("комбо");
         manager.animator.SetBool("IsAgro", false);
-        //manager.animator.SetBool("IsUndercuting", false);
         manager.animator.SetBool("IsComboAttacking", true);
-        //manager.animator.SetBool("IsDownAttacking", false);
         manager.animator.SetBool("IsTired", false);
+        if (manager.AttackNum == manager.MaxAttackNum-1) manager.AttackNum += 1;
+        else manager.AttackNum += 2;
+        if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
+        Debug.Log(manager.AttackNum);
+        Debug.Log(manager.MaxAttackNum);
     }
     public override void UpdateState(BossStateManager manager)
     {
@@ -46,7 +50,7 @@ public class BossComboState : BaseState
             return;
         }
         else if ((manager.DistanceToTarget() > manager.simpleAttackDistance) && (manager.DistanceToTarget()
-            < manager.comboAttackDistance - manager.comboAttackRange))
+            < (manager.comboAttackDistance - manager.comboAttackRange)) || manager.DistanceToTarget() > manager.comboAttackDistance)
         {
             manager.SwichState(manager.bossAgroState);
             return;
@@ -60,15 +64,16 @@ public class BossAttackState : BaseState
     {
         Debug.Log("атака");
         manager.animator.SetBool("IsAgro", false);
-        //manager.animator.SetBool("IsUndercuting", false);
         manager.animator.SetBool("IsComboAttacking", false);
-        //manager.animator.SetBool("IsDownAttacking", true);
         manager.animator.SetBool("IsTired", false);
+        manager.AttackNum += 1;
+        if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
+        Debug.Log(manager.AttackNum);
     }
     public override void UpdateState(BossStateManager manager)
     {
         if ((manager.DistanceToTarget() > manager.simpleAttackDistance) && (manager.DistanceToTarget()
-            < manager.comboAttackDistance - manager.comboAttackRange) || manager.DistanceToTarget() > manager.comboAttackDistance )
+            < manager.comboAttackDistance - manager.comboAttackRange))
         {
             manager.SwichState(manager.bossAgroState);
             return;
