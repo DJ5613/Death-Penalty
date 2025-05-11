@@ -4,6 +4,7 @@ public class BossAgroState : BaseState
 {
     public override void EnterState(BossStateManager manager)
     {
+        Debug.Log("онкмппнолюнопюлопнлоплнпнколплон");
         manager.animator.SetBool("IsAgro", true);
         manager.animator.SetBool("IsUndercuting", false);
         manager.animator.SetBool("IsComboAttacking", false);
@@ -12,17 +13,17 @@ public class BossAgroState : BaseState
     }
     public override void UpdateState(BossStateManager manager)
     {
-        ////if (manager.DistanceToTarget() >= manager.agroDistance)
-        ////{
-        ////    manager.SwichState(manager.idleState);
-        ////    return;
-        ////}
-
-        //if (manager.DistanceToTarget() <= manager.comboAttackDistance)
+        //if (manager.DistanceToTarget() >= manager.agroDistance)
         //{
-        //    manager.SwichState(manager.bossComboState);
+        //    manager.SwichState(manager.idleState);
         //    return;
         //}
+
+        if (manager.DistanceToTarget() > manager.simpleAttackDistance)
+        {
+            manager.SwichState(manager.bossUndercutState);
+            return;
+        }
     }
 }
 

@@ -7,9 +7,10 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
     public float walkSpeed; //по сути бесполезна€
-    public float agroDistance;
+    //public float agroDistance;
     public float simpleAttackDistance;
     public float comboAttackDistance;
+    public float comboAttackRange;
     //public float comboAttackSpeed;
     public float enemyHP;
     private float halfHP;
@@ -46,7 +47,7 @@ public class BossStateManager : MonoBehaviour
             currentState.ExitState(this);
         }
         currentState = newState;
-        //currentState.EnterState(this);
+        currentState.EnterState(this);
     }
 
     private void Start()
@@ -98,12 +99,7 @@ public class BossStateManager : MonoBehaviour
         {
             animator.SetBool("SecondStage", true);
         }
-        SynchronizeAnimatorAndAgent();
-        //if (navMeshAgent.velocity.sqrMagnitude > 0.01f)
-        //{
-        //    Quaternion targetRotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-        //}
+        SynchronizeAnimatorAndAgent();        
     }
 
     void OnAnimatorMove()
@@ -116,7 +112,7 @@ public class BossStateManager : MonoBehaviour
         navMeshAgent.nextPosition = newPosition;
 
         // ≈сли нужно, можно смещать позицию вперЄд (дл€ более агрессивного преследовани€)
-        transform.position += transform.forward * walkSpeed * Time.deltaTime;
+        //transform.position += transform.forward * walkSpeed * Time.deltaTime;
     }
 
     public void SetSpeed(float newSpeed)
