@@ -20,7 +20,7 @@ public class BossAgroState : BaseState
 
         if (manager.DistanceToTarget() <= manager.comboAttackDistance)
         {
-            manager.SwichState(manager.comboAttackState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
     }
@@ -40,7 +40,7 @@ public class BossComboState : BaseState
     {
         if (manager.DistanceToTarget() >= manager.agroDistance)
         {
-            manager.SwichState(manager.idleState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
 
@@ -67,7 +67,7 @@ public class BossDeathState : BaseState
     {
         if (manager.DistanceToTarget() >= manager.agroDistance)
         {
-            manager.SwichState(manager.idleState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
 
@@ -93,13 +93,13 @@ public class BossUndercutState : BaseState
     {
         if (manager.DistanceToTarget() >= manager.agroDistance)
         {
-            manager.SwichState(manager.idleState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
 
         if (manager.DistanceToTarget() <= manager.comboAttackDistance)
         {
-            manager.SwichState(manager.comboAttackState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
     }
@@ -119,13 +119,13 @@ public class BossDownAttackState : BaseState
     {
         if (manager.DistanceToTarget() >= manager.agroDistance)
         {
-            manager.SwichState(manager.idleState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
 
         if (manager.DistanceToTarget() <= manager.comboAttackDistance)
         {
-            manager.SwichState(manager.comboAttackState);
+            manager.SwichState(manager.bossComboState);
             return;
         }
     }

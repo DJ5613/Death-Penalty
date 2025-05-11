@@ -18,16 +18,25 @@ public class BossStateManager : MonoBehaviour
     NavMeshPath _cachedPath;
 
     BaseState currentState;
-    public IdleState idleState = new IdleState();
-    public AgroState agroState = new AgroState();
-    //public SimpleAttackState simpleAttackState = new SimpleAttackState();
-    public ComboAttackState comboAttackState = new ComboAttackState();
-    public DeathState deathState = new DeathState();
+    public BossAgroState bossAgroState = new BossAgroState();
+    public BossComboState bossComboState = new BossComboState();
+    public BossDownAttackState bossDownAttackState = new BossDownAttackState();
+    public BossUndercutState bossUndercutState = new BossUndercutState();
+    public BossDeathState bossDeathState = new BossDeathState();
     public static bool playerInRoom = true;
 
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
+    int attackNum = 0;
+    int maxAttackNum = 3;
     private bool isRotate;
+    public int AttackNum
+    {
+        get { return attackNum; }
+        set { if (value > maxAttackNum) attackNum = 1; }
+    }
+
+    public BaseState comboAttackState { get; internal set; }
 
     [SerializeField] private GameObject resultMenu;
     public void SwichState(BaseState newState)
@@ -61,7 +70,7 @@ public class BossStateManager : MonoBehaviour
         Debug.Log($"половина хп: {halfHP}");
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
-        SwichState(idleState);
+        SwichState(bossAgroState);
         navMeshAgent.updatePosition = false;
         navMeshAgent.updateRotation = false;
 
