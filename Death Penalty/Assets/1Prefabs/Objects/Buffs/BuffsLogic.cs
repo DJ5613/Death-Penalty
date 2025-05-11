@@ -13,7 +13,7 @@ public class BuffsLogic : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Damage":
-                KillingEnemies.damage += 5f;
+                KillingEnemies.damage *= 1.2f;
                 Destroy(gameObject);
                 break;
             case "Zamedlo":

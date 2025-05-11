@@ -187,7 +187,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7384582949631064070, guid: 84c1833e808d1fe498f6b65d2ea41ff8, type: 3}
+      - m_Target: {fileID: 5326533657216071296}
         m_TargetAssemblyTypeName: BuffsLogic, Assembly-CSharp
         m_MethodName: onGrab
         m_Mode: 1

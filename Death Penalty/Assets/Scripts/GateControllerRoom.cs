@@ -99,7 +99,8 @@ public class GateControllerRoom : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-           // Debug.Log("FSDFSDFGSDFS");
+            // Debug.Log("FSDFSDFGSDFS");
+            ResultsMenu.kill_score += 1;
             enemiesInRoom.Remove(other.gameObject);
         }
     }

@@ -6,6 +6,11 @@ public class DamageDetector : MonoBehaviour
     [SerializeField] static public float playerHP = 100;
     [SerializeField] private GameObject resultMenu;
 
+
+    private void Start()
+    {
+        playerHP = 100;
+    }
     public void OnDamageDetected(float damage)
     {        
         Debug.Log($"я словил {damage} урона");
