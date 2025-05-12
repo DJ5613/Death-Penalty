@@ -65,7 +65,7 @@ public class DungeonGenerator : MonoBehaviour
             }
 
             SpawnRoom(newPos, GetRandomRoomPrefab(false));
-            CreateCorridor(previousPos, currentPos);
+            //CreateCorridor(previousPos, currentPos);
 
             previousPos = currentPos;
             currentPos = newPos;
@@ -74,7 +74,7 @@ public class DungeonGenerator : MonoBehaviour
         // 3. Комната босса
         Vector2Int bossPos = FindFarthestPosition();
         SpawnRoom(bossPos, bossRoomPrefab);
-        CreateCorridor(currentPos, bossPos);
+        //CreateCorridor(currentPos, bossPos);
 
         Debug.Log($"Сгенерировано подземелье! Комнат: {spawnedRoomsGrid.Count}");
     }
@@ -136,27 +136,27 @@ public class DungeonGenerator : MonoBehaviour
         return farthestPos;
     }
 
-    void CreateCorridor(Vector2Int from, Vector2Int to)
-    {
-        Vector3 start = GridToWorld(from);
-        Vector3 end = GridToWorld(to);
-        Vector3 direction = (end - start).normalized;
+    //void CreateCorridor(Vector2Int from, Vector2Int to)
+    //{
+    //    Vector3 start = GridToWorld(from);
+    //    Vector3 end = GridToWorld(to);
+    //    Vector3 direction = (end - start).normalized;
 
-        bool isHorizontal = Mathf.Abs(direction.x) > 0;
-        float corridorLength = Vector3.Distance(start, end) - roomSize;
-        Vector3 corridorCenter = (start + end) * 0.5f;
+    //    bool isHorizontal = Mathf.Abs(direction.x) > 0;
+    //    float corridorLength = Vector3.Distance(start, end) - roomSize;
+    //    Vector3 corridorCenter = (start + end) * 0.5f;
 
-        GameObject corridor = new GameObject("Corridor");
-        corridor.transform.position = corridorCenter;
-        corridor.transform.rotation = isHorizontal ? Quaternion.Euler(0, 90, 0) : Quaternion.identity;
-        corridor.transform.parent = transform;
+    //    GameObject corridor = new GameObject("Corridor");
+    //    corridor.transform.position = corridorCenter;
+    //    corridor.transform.rotation = isHorizontal ? Quaternion.Euler(0, 90, 0) : Quaternion.identity;
+    //    corridor.transform.parent = transform;
 
-        // Правая стенка
-        CreateWall(corridor.transform, corridorWidth / 2, corridorLength);
+    //    //// Правая стенка
+    //    //CreateWall(corridor.transform, corridorWidth / 2, corridorLength);
 
-        // Левая стенка
-        CreateWall(corridor.transform, -corridorWidth / 2, corridorLength);
-    }
+    //    //// Левая стенка
+    //    //CreateWall(corridor.transform, -corridorWidth / 2, corridorLength);
+    //}
 
     void CreateWall(Transform parent, float xOffset, float length)
     {
@@ -213,19 +213,19 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        if (!Application.isPlaying) return;
+    //void OnDrawGizmos()
+    //{
+    //    if (!Application.isPlaying) return;
 
-        Gizmos.color = Color.blue;
-        foreach (Vector2Int pos in spawnedRoomsGrid)
-        {
-            Vector3 worldPos = GridToWorld(pos);
-            Gizmos.DrawWireCube(worldPos, Vector3.one * roomSize);
-        }
+    //    Gizmos.color = Color.blue;
+    //    foreach (Vector2Int pos in spawnedRoomsGrid)
+    //    {
+    //        Vector3 worldPos = GridToWorld(pos);
+    //        Gizmos.DrawWireCube(worldPos, Vector3.one * roomSize);
+    //    }
 
-        // Стартовая комната - зеленый
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(Vector3.zero, Vector3.one * roomSize * 1.1f);
-    }
+    //    // Стартовая комната - зеленый
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireCube(Vector3.zero, Vector3.one * roomSize * 1.1f);
+    //}
 }
