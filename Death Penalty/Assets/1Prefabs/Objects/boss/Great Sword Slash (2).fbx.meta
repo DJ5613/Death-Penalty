@@ -54,35 +54,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.9180431
-        functionName: Rotation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.9993875
-        functionName: Rotation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.26965466
-        functionName: Rotation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.30357033
-        functionName: Rotation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

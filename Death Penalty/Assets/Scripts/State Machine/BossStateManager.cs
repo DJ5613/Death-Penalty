@@ -193,11 +193,11 @@ public class BossStateManager : MonoBehaviour
             );
         }
 
-        bool shouldMove = Velocity.magnitude > 0.5f
-            && navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance;
+        //bool shouldMove = Velocity.magnitude > 0.5f
+        //    && navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance;
 
-        animator.SetBool("move", shouldMove);
-        animator.SetFloat("locomotion", Velocity.magnitude);
+        //animator.SetBool("move", shouldMove);
+        //animator.SetFloat("locomotion", Velocity.magnitude);
 
         float deltaMagnitude = worldDeltaPosition.magnitude;
         if (deltaMagnitude > navMeshAgent.radius / 2f)
