@@ -5,7 +5,7 @@ public class DamageDetector : MonoBehaviour
     [SerializeField] private GameObject resultMenu;
     public static float playerHP;
     public static float maxPlayerHP;
-    public float PlayerHP
+    public static float PlayerHP
     {
         get => playerHP;
         set

@@ -19,7 +19,7 @@ public class ResultsMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        if (DamageDetector.playerHP <= 0)
+        if (DamageDetector.PlayerHP <= 0)
         {
             status.text = "Вы проебали!";
         }
