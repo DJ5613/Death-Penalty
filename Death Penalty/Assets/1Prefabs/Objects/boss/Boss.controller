@@ -753,7 +753,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.3425963
+  m_TransitionDuration: 0.4628222
   m_TransitionOffset: 0.4331391
   m_ExitTime: 0.8767182
   m_HasExitTime: 1
@@ -900,10 +900,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8026316
-  m_HasExitTime: 1
+  m_TransitionDuration: 0.543333
+  m_TransitionOffset: 0.115942016
+  m_ExitTime: 0.7605264
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1402,7 +1402,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: IsComboAttacking
     m_Type: 4
@@ -1843,9 +1843,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9479167
+  m_TransitionDuration: 1.2154293
+  m_TransitionOffset: 0.20778857
+  m_ExitTime: 0.713167
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2068,9 +2068,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8026316
+  m_TransitionDuration: 0.6071564
+  m_TransitionOffset: 0.42373052
+  m_ExitTime: 0.8144517
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
