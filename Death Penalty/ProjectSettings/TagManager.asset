@@ -7,6 +7,8 @@ TagManager:
   - skeleton
   - Weapon
   - Enemy
+  - Exit
+  - Entrance
   layers:
   - Default
   - TransparentFX
