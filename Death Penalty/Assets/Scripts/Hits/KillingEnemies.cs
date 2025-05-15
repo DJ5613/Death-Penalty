@@ -4,14 +4,23 @@ using UnityEngine;
 public class KillingEnemies : MonoBehaviour
 {
     [SerializeField] EnemyStateManager manager;
-    [NonSerialized] static public float damage = 20f;
+    [SerializeField] BossStateManager bossManager;
+    static public float damage = 20f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weapon"))
         {
-            manager.enemyHP -= damage;
-            Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
+            if (manager != null)
+            {
+                manager.enemyHP -= damage;
+                Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
+            }
+            else
+            {
+                bossManager.enemyHP -= damage;
+                Debug.Log("Враг получил удар оружием! ХП: " + bossManager.enemyHP);
+            }
         }
     }
 }

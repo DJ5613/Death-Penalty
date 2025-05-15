@@ -6,6 +6,8 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] Transform player;
     [SerializeField] public Animator animator;
+    [SerializeField] float rotationSpeed;
+    [SerializeField] float rotationOffset;
     public float walkSpeed; //по сути бесполезная
     //public float agroDistance;
     public float simpleAttackDistance;
@@ -163,11 +165,14 @@ public class BossStateManager : MonoBehaviour
         {
             // Плавный поворот (Quaternion.Lerp или Slerp)
             Quaternion targetRotation = Quaternion.LookRotation(direction);
+            targetRotation *= Quaternion.Euler(0, rotationOffset, 0);
+
+            // Плавный поворот с учётом коррекции
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 targetRotation,
-                Time.deltaTime * 5f // Скорость поворота (можно настроить)
-            );
+                Time.deltaTime * rotationSpeed
+                );
         }
     }
 

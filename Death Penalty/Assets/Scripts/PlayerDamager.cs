@@ -9,5 +9,9 @@ public class PlayerDamager : MonoBehaviour
         {
             manager.enemyHP -= damage;
         }
+        else if (other.TryGetComponent<BossStateManager>(out BossStateManager bossManager)) //урон по игроку
+        {
+            bossManager.enemyHP -= damage;
+        }
     }
 }

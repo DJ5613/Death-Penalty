@@ -1,15 +1,26 @@
-using TMPro;
 using UnityEngine;
 
 public class DamageDetector : MonoBehaviour
-{
-    [SerializeField] static public float playerHP = 100;
+{    
     [SerializeField] private GameObject resultMenu;
+    public static float playerHP;
+    public static float maxPlayerHP;
+    public static float PlayerHP
+    {
+        get => playerHP;
+        set
+        {
+            if (value > maxPlayerHP) playerHP = maxPlayerHP;
+            else if (value<= 0) playerHP = 0;
+            else playerHP = value;
+        }
+    }
 
 
     private void Start()
     {
         playerHP = 100;
+        maxPlayerHP = playerHP;
     }
     public void OnDamageDetected(float damage)
     {        
