@@ -29,6 +29,10 @@ public class BossStateManager : MonoBehaviour
     public BossDeathState bossDeathState = new BossDeathState();
     public static bool playerInRoom = true;
 
+    [Header("Collision")]
+    [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private float groundCheckOffset = 0.5f;
+
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
     int attackNum = 0;
@@ -104,21 +108,46 @@ public class BossStateManager : MonoBehaviour
             animator.SetBool("SecondStage", true);
             maxAttackNum = 5;
         }
-        SynchronizeAnimatorAndAgent();        
+        SynchronizeAnimatorAndAgent();
     }
 
     void OnAnimatorMove()
     {
-        // Корректируем позицию вручную, учитывая расчёт NavMeshAgent
-        Vector3 newPosition = animator.rootPosition;
-        newPosition.y = navMeshAgent.nextPosition.y;  // Сохраняем Y-позицию от агента (чтобы не было "прыжков")
-        transform.position = newPosition;
-        transform.rotation = animator.rootRotation;
-        navMeshAgent.nextPosition = newPosition;
+        //// Корректируем позицию вручную, учитывая расчёт NavMeshAgent
+        //Vector3 newPosition = animator.rootPosition;
+        //newPosition.y = navMeshAgent.nextPosition.y;  // Сохраняем Y-позицию от агента (чтобы не было "прыжков")
+        //transform.position = newPosition;
+        //transform.rotation = animator.rootRotation;
+        //navMeshAgent.nextPosition = newPosition;
 
-        // Если нужно, можно смещать позицию вперёд (для более агрессивного преследования)
-        //transform.position += transform.forward * walkSpeed * Time.deltaTime;
-    }
+        //// Если нужно, можно смещать позицию вперёд (для более агрессивного преследования)
+        ////transform.position += transform.forward * walkSpeed * Time.deltaTime;
+
+        // Получаем смещение из анимации
+        Vector3 desiredMove = animator.deltaPosition;
+
+        // Проверяем коллизии по направлению движения
+        if (!Physics.SphereCast(transform.position + Vector3.up * 0.5f,
+                              navMeshAgent.radius * 0.9f,
+                              desiredMove.normalized,
+                              out _,
+                              desiredMove.magnitude,
+                              obstacleMask))
+        {
+            // Если препятствий нет - применяем Root Motion
+            transform.position += desiredMove;
+        }
+        else
+        {
+            // Если есть препятствие - остаёмся на месте
+            transform.position = navMeshAgent.nextPosition;
+        }
+
+        // Синхронизация с агентом
+        navMeshAgent.nextPosition = transform.position;
+        transform.rotation = animator.rootRotation;
+    
+}
 
     public void SetSpeed(float newSpeed)
     {
@@ -197,12 +226,6 @@ public class BossStateManager : MonoBehaviour
                 navMeshAgent.remainingDistance / navMeshAgent.stoppingDistance
             );
         }
-
-        //bool shouldMove = Velocity.magnitude > 0.5f
-        //    && navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance;
-
-        //animator.SetBool("move", shouldMove);
-        //animator.SetFloat("locomotion", Velocity.magnitude);
 
         float deltaMagnitude = worldDeltaPosition.magnitude;
         if (deltaMagnitude > navMeshAgent.radius / 2f)
