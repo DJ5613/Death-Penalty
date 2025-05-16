@@ -55,12 +55,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.46120065
+      - time: 0.47766155
         functionName: Rotate
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.81647205
+        functionName: TiredReset
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.91780806
+        functionName: Rotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

@@ -5,11 +5,9 @@ public class BossAgroState : BaseState
 {
     public override void EnterState(BossStateManager manager)
     {
-        Debug.Log("агро");
+        //Debug.Log("агро");
         manager.animator.SetBool("IsAgro", true);
-        //manager.animator.SetBool("IsUndercuting", false);
         manager.animator.SetBool("IsComboAttacking", false);
-        //manager.animator.SetBool("IsDownAttacking", false);
         //manager.animator.SetBool("IsTired", false);
         //manager.isRotate = true;
     }
@@ -37,10 +35,9 @@ public class BossComboState : BaseState
         Debug.Log("комбо");
         manager.animator.SetBool("IsAgro", false);
         manager.animator.SetBool("IsComboAttacking", true);
-        manager.animator.SetBool("IsTired", false);        
-        //if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
+        manager.animator.SetBool("IsTired", false);
         Debug.Log(manager.AttackNum);
-        Debug.Log(manager.MaxAttackNum);
+        //Debug.Log(manager.MaxAttackNum);
     }
     public override void UpdateState(BossStateManager manager)
     {
@@ -62,12 +59,12 @@ public class BossAttackState : BaseState
 {
     public override void EnterState(BossStateManager manager)
     {
-        Debug.Log("атака");
+        //Debug.Log("атака");
         manager.animator.SetBool("IsAgro", false);
         manager.animator.SetBool("IsComboAttacking", false);
         manager.animator.SetBool("IsTired", false);
         //if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
-        Debug.Log(manager.AttackNum);
+        //Debug.Log(manager.AttackNum);
     }
     public override void UpdateState(BossStateManager manager)
     {

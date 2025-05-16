@@ -10,11 +10,9 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] float rotationOffset;
     public float walkSpeed; //по сути бесполезная
-    //public float agroDistance;
     public float simpleAttackDistance;
     public float comboAttackDistance;
     public float comboAttackRange;
-    //public float comboAttackSpeed;
     public float enemyHP;
     private float halfHP;
     public float enemyDamage;
@@ -25,8 +23,6 @@ public class BossStateManager : MonoBehaviour
     public BossAgroState bossAgroState = new BossAgroState();
     public BossComboState bossComboState = new BossComboState();
     public BossAttackState bossAttackState = new BossAttackState();
-    //public BossDownAttackState bossDownAttackState = new BossDownAttackState();
-    //public BossUndercutState bossUndercutState = new BossUndercutState();
     public BossDeathState bossDeathState = new BossDeathState();
     public static bool playerInRoom = true;
     [NonSerialized] public bool isRotate = true;
@@ -37,8 +33,8 @@ public class BossStateManager : MonoBehaviour
 
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
-    int attackNum = 0;
-    int maxAttackNum = 3;    
+    private int attackNum = 0;
+    private int maxAttackNum = 3;    
     public int AttackNum
     {
         get { return attackNum; }
@@ -48,7 +44,6 @@ public class BossStateManager : MonoBehaviour
             else attackNum = value;
         }
     }
-    public int MaxAttackNum { get;}
 
     [SerializeField] private GameObject resultMenu;
     public void SwichState(BaseState newState)
@@ -95,7 +90,6 @@ public class BossStateManager : MonoBehaviour
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
             if (attackNum == maxAttackNum) animator.SetBool("IsTired", true);
-            //if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath")) RotateTowardsTarget();
             if (isRotate) RotateTowardsTarget();
         }
         if (enemyHP <= 0)
@@ -255,14 +249,18 @@ public class BossStateManager : MonoBehaviour
     void Tired()
     {
         AttackNum++;
-        if (AttackNum == MaxAttackNum)
+        if (AttackNum == maxAttackNum)
         {
             animator.SetBool("IsTired", true);
             attackNum = 0;
         }
-        Debug.Log(AttackNum);
+        Debug.Log("номер атаки:" + AttackNum + "," + maxAttackNum);
     }
 
+    void TiredReset()
+    {
+        animator.SetBool("IsTired", false);
+    }
     void Rotate(int value)
     {
         if (value == 1) isRotate = true;
