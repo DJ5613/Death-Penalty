@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,6 +29,7 @@ public class BossStateManager : MonoBehaviour
     //public BossUndercutState bossUndercutState = new BossUndercutState();
     public BossDeathState bossDeathState = new BossDeathState();
     public static bool playerInRoom = true;
+    [NonSerialized] public bool isRotate = true;
 
     [Header("Collision")]
     [SerializeField] private LayerMask obstacleMask;
@@ -36,8 +38,7 @@ public class BossStateManager : MonoBehaviour
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
     int attackNum = 0;
-    int maxAttackNum = 3;
-    private bool isRotate = true;
+    int maxAttackNum = 3;    
     public int AttackNum
     {
         get { return attackNum; }
@@ -250,6 +251,12 @@ public class BossStateManager : MonoBehaviour
             animator.SetBool("IsUndercuting", true);
             animator.SetBool("IsDownAttacking", false);
         }
+    }
+
+    void Rotate(int value)
+    {
+        if (value == 1) isRotate = true;
+        else isRotate = false;
     }
     void CheckState()
     {

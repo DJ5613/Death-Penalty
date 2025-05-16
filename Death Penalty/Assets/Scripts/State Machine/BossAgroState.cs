@@ -10,19 +10,22 @@ public class BossAgroState : BaseState
         //manager.animator.SetBool("IsUndercuting", false);
         manager.animator.SetBool("IsComboAttacking", false);
         //manager.animator.SetBool("IsDownAttacking", false);
-        manager.animator.SetBool("IsTired", false);
+        //manager.animator.SetBool("IsTired", false);
+        manager.isRotate = true;
     }
     public override void UpdateState(BossStateManager manager)
     {
         if (manager.DistanceToTarget() <= manager.simpleAttackDistance)
         {
             manager.SwichState(manager.bossAttackState);
+            //manager.isRotate = false;
             return;
         }
         if (((manager.DistanceToTarget() > (manager.comboAttackDistance- manager.comboAttackRange))) 
             && (manager.DistanceToTarget() <= manager.comboAttackDistance) && manager.animator.GetBool("SecondStage"))
         {
             manager.SwichState(manager.bossComboState);
+            manager.isRotate = false;
             return;
         }              
     }
@@ -90,6 +93,7 @@ public class BossDeathState : BaseState
         manager.animator.SetBool("IsDownAttacking", false);
         manager.animator.SetBool("IsTired", false);
         manager.animator.SetBool("IsDeath", true) ;
+        manager.isRotate = false;
     }
 }
 
