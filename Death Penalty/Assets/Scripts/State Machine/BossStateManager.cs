@@ -252,6 +252,16 @@ public class BossStateManager : MonoBehaviour
             animator.SetBool("IsDownAttacking", false);
         }
     }
+    void Tired()
+    {
+        AttackNum++;
+        if (AttackNum == MaxAttackNum)
+        {
+            animator.SetBool("IsTired", true);
+            attackNum = 0;
+        }
+        Debug.Log(AttackNum);
+    }
 
     void Rotate(int value)
     {

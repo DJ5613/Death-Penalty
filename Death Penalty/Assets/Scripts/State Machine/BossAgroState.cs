@@ -11,14 +11,13 @@ public class BossAgroState : BaseState
         manager.animator.SetBool("IsComboAttacking", false);
         //manager.animator.SetBool("IsDownAttacking", false);
         //manager.animator.SetBool("IsTired", false);
-        manager.isRotate = true;
+        //manager.isRotate = true;
     }
     public override void UpdateState(BossStateManager manager)
     {
         if (manager.DistanceToTarget() <= manager.simpleAttackDistance)
         {
             manager.SwichState(manager.bossAttackState);
-            //manager.isRotate = false;
             return;
         }
         if (((manager.DistanceToTarget() > (manager.comboAttackDistance- manager.comboAttackRange))) 
@@ -38,10 +37,8 @@ public class BossComboState : BaseState
         Debug.Log("комбо");
         manager.animator.SetBool("IsAgro", false);
         manager.animator.SetBool("IsComboAttacking", true);
-        manager.animator.SetBool("IsTired", false);
-        if (manager.AttackNum == manager.MaxAttackNum-1) manager.AttackNum += 1;
-        else manager.AttackNum += 2;
-        if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
+        manager.animator.SetBool("IsTired", false);        
+        //if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
         Debug.Log(manager.AttackNum);
         Debug.Log(manager.MaxAttackNum);
     }
@@ -69,8 +66,7 @@ public class BossAttackState : BaseState
         manager.animator.SetBool("IsAgro", false);
         manager.animator.SetBool("IsComboAttacking", false);
         manager.animator.SetBool("IsTired", false);
-        manager.AttackNum += 1;
-        if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
+        //if (manager.AttackNum == manager.MaxAttackNum) manager.animator.SetBool("IsTired", true);
         Debug.Log(manager.AttackNum);
     }
     public override void UpdateState(BossStateManager manager)
