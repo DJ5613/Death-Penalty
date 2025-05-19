@@ -13,5 +13,4 @@ public class ResultsButtons : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using Unity.XR;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -7,7 +6,6 @@ public class HandLeftRightTrGrab : XRGrabInteractable
 {
     public Transform leftHandAttach;
     public Transform rightHandAttach;
-
     private XRGrabInteractable grabInteractable;
 
     protected override void Awake()
@@ -19,7 +17,6 @@ public class HandLeftRightTrGrab : XRGrabInteractable
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
         string interactorName = args.interactorObject.transform.name.ToLower();
-        //Debug.Log(interactorName);
         if (interactorName.Contains("left interaction"))
         {
             grabInteractable.attachTransform = leftHandAttach;
@@ -38,5 +35,4 @@ public class HandLeftRightTrGrab : XRGrabInteractable
         base.OnSelectExited(args);
         args.interactableObject.transform.SetParent(null);
     }
-
 }

@@ -22,5 +22,4 @@ public class BuffsLogic : MonoBehaviour
                 break;
         }
     }
-
 }

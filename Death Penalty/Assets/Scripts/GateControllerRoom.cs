@@ -5,29 +5,30 @@ public class GateControllerRoom : MonoBehaviour
 {
     public Transform gate1;
     public Transform gate2;
-    public Vector3 raisedOffset = new Vector3(0, 5.65f, 0);
+    public Vector3 raisedOffset = new Vector3(0, 5.65f, 0); // Смещение для поднятых ворот
     public float moveSpeed = 2.5f;
     public string enemyTag = "skeleton";
 
     [SerializeField] private GameObject[] buffs;
 
-    private enum GateState { Closed, Opening, Opened, Closing }
-    private GateState gateState = GateState.Closed;
+    private enum GateState { Open, Opening, Closed, Closing }
+    private GateState gateState = GateState.Open; // Начинаем с ОТКРЫТЫХ ворот (опущенных)
 
-    private Vector3 gate1ClosedPos, gate1OpenPos;
-    private Vector3 gate2ClosedPos, gate2OpenPos;
+    private Vector3 gate1OpenPos, gate1ClosedPos;
+    private Vector3 gate2OpenPos, gate2ClosedPos;
 
     private bool playerInside = false;
     private HashSet<GameObject> enemiesInRoom = new HashSet<GameObject>();
 
     void Start()
     {
-        gate1ClosedPos = gate1.position;
-        gate1OpenPos = gate1ClosedPos + raisedOffset;
+        // Текущая позиция - это открытое (опущенное) положение
+        gate1OpenPos = gate1.position;
+        // Закрытое положение - поднятое (текущая позиция + смещение)
+        gate1ClosedPos = gate1OpenPos + raisedOffset;
 
-        gate2ClosedPos = gate2.position;
-        gate2OpenPos = gate2ClosedPos + raisedOffset;
-
+        gate2OpenPos = gate2.position;
+        gate2ClosedPos = gate2OpenPos + raisedOffset;
     }
 
     void Update()
@@ -35,31 +36,33 @@ public class GateControllerRoom : MonoBehaviour
         switch (gateState)
         {
             case GateState.Opening:
+                // ОТКРЫВАЕМ (опускаем ворота)
                 MoveGate(gate1, gate1OpenPos);
                 MoveGate(gate2, gate2OpenPos);
 
                 if (IsAtPosition(gate1, gate1OpenPos) && IsAtPosition(gate2, gate2OpenPos))
                 {
-                    gateState = GateState.Opened;
+                    gateState = GateState.Open; // Полностью открыто
                 }
                 break;
 
             case GateState.Closing:
+                // ЗАКРЫВАЕМ (поднимаем ворота)
                 MoveGate(gate1, gate1ClosedPos);
                 MoveGate(gate2, gate2ClosedPos);
 
                 if (IsAtPosition(gate1, gate1ClosedPos) && IsAtPosition(gate2, gate2ClosedPos))
                 {
-                    gateState = GateState.Closed;
+                    gateState = GateState.Closed; // Полностью закрыто
                 }
                 break;
 
-            case GateState.Opened:
+            case GateState.Closed:
+                
                 if (enemiesInRoom.Count == 0)
                 {
                     gameObject.GetComponent<SpawnBuffs>().SpawnBuffNow();
-                    gateState = GateState.Closing;
-
+                    gateState = GateState.Opening;
                 }
                 break;
         }
@@ -82,9 +85,10 @@ public class GateControllerRoom : MonoBehaviour
             if (!playerInside)
             {
                 playerInside = true;
-                if (gateState == GateState.Closed)
+                // Если ворота открыты - начинаем закрывать
+                if (gateState == GateState.Open)
                 {
-                    gateState = GateState.Opening;
+                    gateState = GateState.Closing;
                 }
             }
         }
@@ -99,7 +103,6 @@ public class GateControllerRoom : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-            // Debug.Log("FSDFSDFGSDFS");
             ResultsMenu.kill_score += 1;
             enemiesInRoom.Remove(other.gameObject);
         }
@@ -113,6 +116,5 @@ public class GateControllerRoom : MonoBehaviour
     public void SpawnBuff()
     {
         int randomIndex = Random.Range(0, buffs.Length);
-
     }
 }

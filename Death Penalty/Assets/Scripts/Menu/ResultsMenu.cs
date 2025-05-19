@@ -21,11 +21,11 @@ public class ResultsMenu : MonoBehaviour
     {
         if (DamageDetector.PlayerHP <= 0)
         {
-            status.text = "Вы проебали!";
+            status.text = "Вы проиграли!";
         }
         else
         {
-            status.text = "Вы нахуй в это играли?";
+            status.text = "Вы зачем в это играли?";
         }
         int minutes = Mathf.FloorToInt(Timer.currentTime / 60f);
         int seconds = Mathf.FloorToInt(Timer.currentTime % 60f);

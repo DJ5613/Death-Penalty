@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
 public class MenuControl : MonoBehaviour
 {
-    [SerializeField] private GameObject basePanel;
-    [SerializeField] private GameObject rulesPanel;
-
+    [SerializeField] private GameObject thisPanel;
+    [SerializeField] private GameObject nextPanel;
 
     public void StartGame()
     {
@@ -18,16 +15,9 @@ public class MenuControl : MonoBehaviour
         Application.Quit();
     }
 
-    public void RulesButt()
+    public void SwitchPanel()
     {
-        basePanel.SetActive(false);
-        rulesPanel.SetActive(true);
+        thisPanel.SetActive(false);
+        nextPanel.SetActive(true);
     }
-
-    public void BaseButt()
-    {
-        basePanel.SetActive(true);
-        rulesPanel.SetActive(false);
-    }
-
 }

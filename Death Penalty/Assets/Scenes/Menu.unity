@@ -3525,8 +3525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacd63059160ae9498cd642147ffee7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePanel: {fileID: 0}
-  rulesPanel: {fileID: 0}
+  thisPanel: {fileID: 0}
+  nextPanel: {fileID: 0}
 --- !u!114 &432963728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4442,6 +4442,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740402034051318149, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -4486,45 +4490,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2519539738873622314, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.07
+    - target: {fileID: 5938396732603746238, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2519539738873622314, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.019
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532536310, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532967316, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532967316, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532967316, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.071
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532967318, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532967318, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.019
-      objectReference: {fileID: 0}
-    - target: {fileID: 2527071342532967318, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.206
-      objectReference: {fileID: 0}
-    - target: {fileID: 3583545540407972716, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0651
+    - target: {fileID: 5938396732603746238, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7447456452775649484, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: volumeSlider
@@ -4538,6 +4510,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7871553859939914552, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.67
+      objectReference: {fileID: 0}
     - target: {fileID: 8051798562469254654, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4550,17 +4526,17 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9137648062830247412, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 8469057031934646251, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9137648062830731668, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.007
+    - target: {fileID: 8469057031934646251, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9137648062830731668, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.202
+    - target: {fileID: 8469057031934646251, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6052,8 +6028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacd63059160ae9498cd642147ffee7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePanel: {fileID: 765363979}
-  rulesPanel: {fileID: 1504865731}
+  thisPanel: {fileID: 1504865731}
+  nextPanel: {fileID: 765363979}
 --- !u!114 &894374429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6100,7 +6076,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894374428}
         m_TargetAssemblyTypeName: MenuControl, Assembly-CSharp
-        m_MethodName: BaseButt
+        m_MethodName: SwitchPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7769,8 +7745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacd63059160ae9498cd642147ffee7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePanel: {fileID: 0}
-  rulesPanel: {fileID: 0}
+  thisPanel: {fileID: 0}
+  nextPanel: {fileID: 0}
 --- !u!82 &1230529599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10338,8 +10314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacd63059160ae9498cd642147ffee7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePanel: {fileID: 765363979}
-  rulesPanel: {fileID: 1504865731}
+  thisPanel: {fileID: 765363979}
+  nextPanel: {fileID: 1504865731}
 --- !u!114 &1812249415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10386,7 +10362,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1812249414}
         m_TargetAssemblyTypeName: MenuControl, Assembly-CSharp
-        m_MethodName: RulesButt
+        m_MethodName: SwitchPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
