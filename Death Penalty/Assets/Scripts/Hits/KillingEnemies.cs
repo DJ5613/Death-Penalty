@@ -15,6 +15,7 @@ public class KillingEnemies : MonoBehaviour
             {
                 manager.enemyHP -= damage;
                 Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
+                manager.PlayHitSound();
             }
             else
             {

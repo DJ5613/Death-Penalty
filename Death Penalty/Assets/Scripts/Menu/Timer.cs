@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     [Header("Настройки таймера")]
     [SerializeField] private float startTime = 0f; // Время в секундах
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI timer;
     [NonSerialized] static public float currentTime;
     private bool isTimerRunning = false;
 
@@ -17,7 +18,10 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        text.text = "Ваше хп: " + DamageDetector.playerHP.ToString();
+        text.text = "HP: " + DamageDetector.playerHP.ToString();
+        int minutes = Mathf.FloorToInt(Timer.currentTime / 60f);
+        int seconds = Mathf.FloorToInt(Timer.currentTime % 60f);
+        timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         if (isTimerRunning && Time.timeScale == 1f)
         {
             UpdateTimer();

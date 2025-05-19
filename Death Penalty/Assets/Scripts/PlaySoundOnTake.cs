@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlaySoundOnTake : MonoBehaviour
+public class PlaySoundSword : MonoBehaviour
 { 
     private XRGrabInteractable grabInteractable;
     private AudioSource audioSource;

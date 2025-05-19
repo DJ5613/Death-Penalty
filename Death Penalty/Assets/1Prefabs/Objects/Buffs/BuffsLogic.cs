@@ -10,6 +10,7 @@ public class BuffsLogic : MonoBehaviour
         {
             case "HP":
                 DamageDetector.maxPlayerHP += 100;
+                DamageDetector.playerHP = DamageDetector.maxPlayerHP;
                 Destroy(gameObject);
                 break;
             case "Damage":

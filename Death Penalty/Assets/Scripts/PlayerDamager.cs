@@ -8,6 +8,7 @@ public class PlayerDamager : MonoBehaviour
         if (other.TryGetComponent<EnemyStateManager>(out EnemyStateManager manager)) //урон по игроку
         {
             manager.enemyHP -= damage;
+            
         }
         else if (other.TryGetComponent<BossStateManager>(out BossStateManager bossManager)) //урон по игроку
         {

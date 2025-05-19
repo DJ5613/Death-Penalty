@@ -27,7 +27,16 @@ public class EnemyStateManager : MonoBehaviour
     public SimpleAttackState simpleAttackState = new SimpleAttackState();
     public ComboAttackState comboAttackState = new ComboAttackState();
     public DeathState deathState = new DeathState();
-    public static bool playerInRoom = true; //Должно быть false, пока что сделано для теста
+    public static bool playerInRoom = false; //Должно быть false, пока что сделано для теста
+
+    [Header("Звук")]
+    [SerializeField] private AudioSource _audioSource;
+    [Tooltip("Звук попадания по врагу")]
+    [SerializeField] private AudioClip getHitSound;
+    [Tooltip("Звук смерти")]
+    [SerializeField] private AudioClip deathSound;
+
+
     public void SwichState(BaseState newState)
     {
         if (currentState != null)
@@ -161,4 +170,15 @@ public class EnemyStateManager : MonoBehaviour
         if (value == 1) rotationFlag = true;
         else rotationFlag = false;
     }
+
+    public void PlayHitSound()
+    {
+        _audioSource.PlayOneShot(getHitSound);
+    }
+
+    public void PlayDeathSound()
+    {
+        _audioSource.PlayOneShot(deathSound);
+    }
+
 }

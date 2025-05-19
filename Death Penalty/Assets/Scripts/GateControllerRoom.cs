@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GateControllerRoom : MonoBehaviour
 {
+    [Header("Для ворот")]
     public Transform gate1;
     public Transform gate2;
     public Vector3 raisedOffset = new Vector3(0, 5.65f, 0); // Смещение для поднятых ворот
@@ -19,6 +20,11 @@ public class GateControllerRoom : MonoBehaviour
 
     private bool playerInside = false;
     private HashSet<GameObject> enemiesInRoom = new HashSet<GameObject>();
+
+    [Header("Звук")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip completeRoomSound;
+
 
     void Start()
     {
@@ -104,6 +110,11 @@ public class GateControllerRoom : MonoBehaviour
         if (other.CompareTag(enemyTag))
         {
             ResultsMenu.kill_score += 1;
+            if(other.TryGetComponent<EnemyStateManager>(out EnemyStateManager manager))
+            {
+                manager.PlayDeathSound();
+            }
+
             enemiesInRoom.Remove(other.gameObject);
         }
     }
@@ -117,4 +128,10 @@ public class GateControllerRoom : MonoBehaviour
     {
         int randomIndex = Random.Range(0, buffs.Length);
     }
+
+    public void PlayCompleteRoomSound()
+    {
+        audioSource.PlayOneShot(completeRoomSound);
+    }
+
 }
