@@ -1,6 +1,23 @@
 using GLTFast.Schema;
 using UnityEngine;
 
+public class BossIdleState : BaseState
+{
+    public override void EnterState(BossStateManager manager)
+    {
+        manager.animator.SetBool("IsTired", false);
+        manager.animator.SetBool("IsAgro", false);
+        manager.animator.SetBool("IsComboAttacking", false);
+    }
+    public override void UpdateState(BossStateManager manager)
+    {
+        if (manager.DistanceToTarget() <= manager.simpleAttackDistance)
+        {
+            manager.SwichState(manager.bossAttackState);
+            return;
+        }
+    }
+}
 public class BossAgroState : BaseState
 {
     public override void EnterState(BossStateManager manager)

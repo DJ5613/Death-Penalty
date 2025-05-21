@@ -86,7 +86,6 @@ public class EnemyStateManager : MonoBehaviour
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
             transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
-            //rb.useGravity = true;
             
             Debug.Log("ВРАГ УМЕР");
             //Collider collider = GetComponent<Collider>();
@@ -133,7 +132,6 @@ public class EnemyStateManager : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-            // Плавный поворот (Quaternion.Lerp или Slerp)
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,

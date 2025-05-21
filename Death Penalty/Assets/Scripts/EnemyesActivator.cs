@@ -1,6 +1,4 @@
-using System.Runtime.Serialization;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 
 public class EnemyesActivator : MonoBehaviour
 {
