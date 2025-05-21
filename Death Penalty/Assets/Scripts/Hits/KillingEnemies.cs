@@ -5,7 +5,7 @@ public class KillingEnemies : MonoBehaviour
 {
     [SerializeField] EnemyStateManager manager;
     [SerializeField] BossStateManager bossManager;
-    static public float damage = 20f;
+    static public float damage = 10f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,4 +25,3 @@ public class KillingEnemies : MonoBehaviour
         }
     }
 }
-//Крепится на Skeleton/skeleton_mesh

@@ -61,14 +61,14 @@ public class BossStateManager : MonoBehaviour
         switch (SwitchDifficulty.dif_num)
         {
             case 1:
-                walkSpeed = (float)(walkSpeed * 0.7);
-                enemyHP = (float)(enemyHP * 0.5);
+                //walkSpeed = (float)(walkSpeed * 0.7);
+                enemyHP = (float)(enemyHP * 0.7);
                 enemyDamage = (float)(enemyDamage * 0.5);
                 break;
             case 2:
                 break;
             case 3:
-                walkSpeed = (float)(walkSpeed * 1.2);
+                //walkSpeed = (float)(walkSpeed * 1.2);
                 enemyHP = (float)(enemyHP * 1.5);
                 enemyDamage = (float)(enemyDamage * 1.5);
                 break;
@@ -77,7 +77,7 @@ public class BossStateManager : MonoBehaviour
         Debug.Log($"половина хп: {halfHP}");
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
-        SwichState(bossAgroState);
+        //SwichState(bossAgroState);
         navMeshAgent.updatePosition = false;
         navMeshAgent.updateRotation = false;
 

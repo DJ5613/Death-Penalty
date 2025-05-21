@@ -52,14 +52,14 @@ public class EnemyStateManager : MonoBehaviour
         switch (SwitchDifficulty.dif_num)
         {
             case 1:
-                wolkSpeed = (float)(wolkSpeed * 0.7);
-                enemyHP = (float)(enemyHP * 0.5);
+                wolkSpeed = (float)(wolkSpeed * 0.85);
+                enemyHP = (float)(enemyHP * 0.7);
                 enemyDamage = (float)(enemyDamage * 0.5);
                 break;
             case 2:
                 break;
             case 3:
-                wolkSpeed = (float)(wolkSpeed * 1.2);
+                wolkSpeed = (float)(wolkSpeed * 1.15);
                 enemyHP = (float)(enemyHP * 1.5);
                 enemyDamage = (float)(enemyDamage * 1.5);
                 break;
@@ -89,10 +89,10 @@ public class EnemyStateManager : MonoBehaviour
             //rb.useGravity = true;
             
             Debug.Log("¬–¿√ ”Ã≈–");
-            Collider collider = GetComponent<Collider>();
-            collider.enabled = false;
-            BoxCollider boxCollider = GetComponent<BoxCollider>();
-            boxCollider.center -= new Vector3(0,5,0);
+            //Collider collider = GetComponent<Collider>();
+            //collider.enabled = false;
+            //BoxCollider boxCollider = GetComponent<BoxCollider>();
+            //boxCollider.center -= new Vector3(0,5,0);
         }
     }
 

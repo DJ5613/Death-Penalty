@@ -37,7 +37,6 @@ public class BossComboState : BaseState
         manager.animator.SetBool("IsComboAttacking", true);
         manager.animator.SetBool("IsTired", false);
         Debug.Log(manager.AttackNum);
-        //Debug.Log(manager.MaxAttackNum);
     }
     public override void UpdateState(BossStateManager manager)
     {
