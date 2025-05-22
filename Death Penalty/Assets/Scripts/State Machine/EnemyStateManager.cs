@@ -17,7 +17,7 @@ public class EnemyStateManager : MonoBehaviour
     public float enemyHP;
     public float enemyDamage;
     public bool rotationFlag = true;
-    [NonSerialized] static public float slow = 1;
+    static public float slow = 1;
     Transform target;
     NavMeshPath _cachedPath;
 
@@ -73,7 +73,7 @@ public class EnemyStateManager : MonoBehaviour
     {        
         if (playerInRoom)
         {
-            wolkSpeed *= slow;
+            wolkSpeed *= slow; //»«-«¿ ›“Œ… —“–Œ » ŒÕ» —“Œﬂ“ Õ¿ Ã≈—“≈
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
@@ -85,13 +85,7 @@ public class EnemyStateManager : MonoBehaviour
             sword.transform.SetParent(null);
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
-            transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
-            
             Debug.Log("¬–¿√ ”Ã≈–");
-            //Collider collider = GetComponent<Collider>();
-            //collider.enabled = false;
-            //BoxCollider boxCollider = GetComponent<BoxCollider>();
-            //boxCollider.center -= new Vector3(0,5,0);
         }
     }
 
@@ -168,6 +162,13 @@ public class EnemyStateManager : MonoBehaviour
         if (value == 1) rotationFlag = true;
         else rotationFlag = false;
     }
+
+    void FallDestroy() {
+        navMeshAgent.enabled = false;
+        transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
+        Destroy(this, 5f);
+    }
+
 
     public void PlayHitSound()
     {

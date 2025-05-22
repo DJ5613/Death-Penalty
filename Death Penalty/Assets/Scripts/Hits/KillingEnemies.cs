@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
 
 public class KillingEnemies : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class KillingEnemies : MonoBehaviour
                 manager.enemyHP -= damage;
                 Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
                 manager.PlayHitSound();
+                
             }
             else
             {

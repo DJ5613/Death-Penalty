@@ -8,7 +8,7 @@ public class GateControllerRoom : MonoBehaviour
     public Transform gate2;
     public Vector3 raisedOffset = new Vector3(0, 5.65f, 0); // Смещение для поднятых ворот
     public float moveSpeed = 2.5f;
-    public string enemyTag = "skeleton";
+    public string enemyTag = "Enemy";
 
     [SerializeField] private GameObject[] buffs;
 
@@ -133,5 +133,4 @@ public class GateControllerRoom : MonoBehaviour
     {
         audioSource.PlayOneShot(completeRoomSound);
     }
-
 }

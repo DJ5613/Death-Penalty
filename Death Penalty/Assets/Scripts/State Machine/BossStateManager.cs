@@ -78,7 +78,6 @@ public class BossStateManager : MonoBehaviour
         Debug.Log($"половина хп: {halfHP}");
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
         _cachedPath = new NavMeshPath();
-        //SwichState(bossAgroState);
         navMeshAgent.updatePosition = false;
         navMeshAgent.updateRotation = false;
 
