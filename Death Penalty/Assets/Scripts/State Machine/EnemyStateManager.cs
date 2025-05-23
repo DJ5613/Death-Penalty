@@ -71,7 +71,7 @@ public class EnemyStateManager : MonoBehaviour
     }
     private void Update()
     {        
-        if (playerInRoom)
+        if (playerInRoom && navMeshAgent.enabled == true)
         {
             wolkSpeed *= slow; //»«-«¿ ›“Œ… —“–Œ » ŒÕ» —“Œﬂ“ Õ¿ Ã≈—“≈
             SetDestination(player);
@@ -86,6 +86,7 @@ public class EnemyStateManager : MonoBehaviour
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
             Debug.Log("¬–¿√ ”Ã≈–");
+            FallDestroy();
         }
     }
 
@@ -162,11 +163,11 @@ public class EnemyStateManager : MonoBehaviour
         if (value == 1) rotationFlag = true;
         else rotationFlag = false;
     }
-
-    void FallDestroy() {
+    void FallDestroy()
+    {
         navMeshAgent.enabled = false;
         transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
-        Destroy(this, 5f);
+        Destroy(gameObject, 2f);
     }
 
 
