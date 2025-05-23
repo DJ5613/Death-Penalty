@@ -27,9 +27,6 @@ public class BossStateManager : MonoBehaviour
     public static bool playerInRoom;
     [NonSerialized] public bool isRotate = true;
 
-    [Header("Collision")]
-    [SerializeField] private LayerMask obstacleMask;
-    [SerializeField] private float groundCheckOffset = 0.5f;
 
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
@@ -114,34 +111,6 @@ public class BossStateManager : MonoBehaviour
         transform.position = newPosition;
         transform.rotation = animator.rootRotation;
         navMeshAgent.nextPosition = newPosition;
-
-        //// Если нужно, можно смещать позицию вперёд (для более агрессивного преследования)
-        ////transform.position += transform.forward * walkSpeed * Time.deltaTime;
-
-        //// Получаем смещение из анимации
-        //Vector3 desiredMove = animator.deltaPosition;
-
-        //// Проверяем коллизии по направлению движения
-        //if (!Physics.SphereCast(transform.position + Vector3.up * 0.5f,
-        //                      navMeshAgent.radius * 0.9f,
-        //                      desiredMove.normalized,
-        //                      out _,
-        //                      desiredMove.magnitude,
-        //                      obstacleMask))
-        //{
-        //    // Если препятствий нет - применяем Root Motion
-        //    transform.position += desiredMove;
-        //}
-        //else
-        //{
-        //    // Если есть препятствие - остаёмся на месте
-        //    transform.position = navMeshAgent.nextPosition;
-        //}
-
-        //// Синхронизация с агентом
-        //navMeshAgent.nextPosition = transform.position;
-        //transform.rotation = animator.rootRotation;
-    
 }
 
     public void SetSpeed(float newSpeed)
@@ -178,27 +147,48 @@ public class BossStateManager : MonoBehaviour
         return Vector3.Distance(transform.position, target.position);
     }
 
+    //private void RotateTowardsTarget()
+    //{
+    //    if (target == null) return;
+
+    //    Vector3 direction = (target.position - transform.position).normalized;
+    //    direction.y = 0; // Игнорируем наклон по оси Y (если не нужно)
+
+    //    if (direction != Vector3.zero)
+    //    {
+    //        Quaternion targetRotation = Quaternion.LookRotation(direction);
+    //        targetRotation *= Quaternion.Euler(0, rotationOffset, 0);
+
+    //        // Плавный поворот с учётом коррекции
+    //        transform.rotation = Quaternion.Slerp(
+    //            transform.rotation,
+    //            targetRotation,
+    //            Time.deltaTime * rotationSpeed
+    //            );
+    //    }
+    //}
+
     private void RotateTowardsTarget()
     {
-        if (target == null) return;
+        if (navMeshAgent.pathPending)
+            return;
 
-        Vector3 direction = (target.position - transform.position).normalized;
-        direction.y = 0; // Игнорируем наклон по оси Y (если не нужно)
+        Vector3 direction = navMeshAgent.steeringTarget - transform.position;
+        direction.y = 0f;
 
-        if (direction != Vector3.zero)
+        if (direction.sqrMagnitude > 0.001f)
         {
-            // Плавный поворот (Quaternion.Lerp или Slerp)
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
             targetRotation *= Quaternion.Euler(0, rotationOffset, 0);
 
-            // Плавный поворот с учётом коррекции
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 targetRotation,
                 Time.deltaTime * rotationSpeed
-                );
+            );
         }
     }
+
 
     private void SynchronizeAnimatorAndAgent()
     {

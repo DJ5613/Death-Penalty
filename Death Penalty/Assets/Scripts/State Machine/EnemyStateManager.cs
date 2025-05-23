@@ -86,7 +86,7 @@ public class EnemyStateManager : MonoBehaviour
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
             Debug.Log("¬–¿√ ”Ã≈–");
-            FallDestroy();
+            Invoke("FallDestroy", 2f);
         }
     }
 
