@@ -31,7 +31,7 @@ public class BossStateManager : MonoBehaviour
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
     private int attackNum = 0;
-    private int maxAttackNum = 3;    
+    private int maxAttackNum = 4;    
     public int AttackNum
     {
         get { return attackNum; }
@@ -98,7 +98,7 @@ public class BossStateManager : MonoBehaviour
         if (enemyHP <= halfHP)
         {
             animator.SetBool("SecondStage", true);
-            maxAttackNum = 5;
+            maxAttackNum = 7;
         }
         SynchronizeAnimatorAndAgent();
     }

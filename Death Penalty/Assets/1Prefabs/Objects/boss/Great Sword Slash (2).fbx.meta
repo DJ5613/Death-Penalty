@@ -97,6 +97,34 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.7449398
+        functionName: Rotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.8002701
+        functionName: Rotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.512821
+        functionName: Rotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.54925776
+        functionName: Rotate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 23dee8ae85c27dd48bbb661e2e2cac0b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
