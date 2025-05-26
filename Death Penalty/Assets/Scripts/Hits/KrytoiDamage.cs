@@ -18,19 +18,30 @@ public class KrytoiDamage : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+
+        if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Object") return;
+
         if (currentSpeed < minHitSpeed)
         {
             Debug.Log("Слабо");
             return;
         }
-
-            if (collision.gameObject.tag != "Enemy") return;
-
-        if (collision.gameObject.TryGetComponent<EnemyStateManager>(out EnemyStateManager manager)) //урон по врагу
+        if (collision.gameObject.tag == "Enemy")
         {
-            manager.enemyHP -= damage;
-            Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
-            manager.PlayHitSound();
+            if (collision.gameObject.TryGetComponent<EnemyStateManager>(out EnemyStateManager manager)) //урон по врагу
+            {
+                manager.enemyHP -= damage;
+                Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
+                manager.PlayHitSound();
+            }
+        }
+
+        if (collision.gameObject.tag == "Object")
+        {
+            if (collision.gameObject.TryGetComponent<BreakableObject>(out BreakableObject obj)) //Урон по объекту
+            {
+                obj.TakeHit();
+            }
         }
     }
 }
