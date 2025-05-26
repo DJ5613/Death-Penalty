@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Exit
   - Entrance
+  - Object
   layers:
   - Default
   - TransparentFX

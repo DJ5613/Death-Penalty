@@ -379,7 +379,6 @@ GameObject:
   - component: {fileID: 7268916125066614892}
   - component: {fileID: 2158035255787373538}
   - component: {fileID: 3822816779308192076}
-  - component: {fileID: 6990964773075853965}
   m_Layer: 0
   m_Name: Bip01 Spine1
   m_TagString: Untagged
@@ -447,20 +446,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.81, y: 1.26, z: 1.18}
   m_Center: {x: -0.44, y: 0, z: 0}
---- !u!114 &6990964773075853965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757174520822222371}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 4590734439126922144}
-  bossManager: {fileID: 0}
 --- !u!1 &2765768331804108265
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +523,6 @@ GameObject:
   - component: {fileID: 6826068970876398961}
   - component: {fileID: 57661040859860666}
   - component: {fileID: 8448588829171738230}
-  - component: {fileID: 8982287198863894651}
   m_Layer: 0
   m_Name: Bip01 Head
   m_TagString: Untagged
@@ -609,20 +593,6 @@ CapsuleCollider:
   m_Height: 1.2672564
   m_Direction: 0
   m_Center: {x: -0.3434274, y: 0.09000002, z: 0.00000013276379}
---- !u!114 &8982287198863894651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3302996860116616315}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 4590734439126922144}
-  bossManager: {fileID: 0}
 --- !u!1 &3624658190231366380
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +792,6 @@ GameObject:
   - component: {fileID: 8585212474822827343}
   - component: {fileID: 3206867141214823949}
   - component: {fileID: 2303003792514238057}
-  - component: {fileID: 3865361305966275519}
   m_Layer: 0
   m_Name: Bip01 L Thigh
   m_TagString: Untagged
@@ -890,20 +859,6 @@ CapsuleCollider:
   m_Height: 1.56
   m_Direction: 0
   m_Center: {x: -0.76, y: 0, z: 0}
---- !u!114 &3865361305966275519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5187607750060210075}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 4590734439126922144}
-  bossManager: {fileID: 0}
 --- !u!1 &5445619850383075410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1681,6 @@ GameObject:
   - component: {fileID: 3914775946998161945}
   - component: {fileID: 6237500371312067447}
   - component: {fileID: 8456785895185606185}
-  - component: {fileID: 4237362285894301901}
   m_Layer: 0
   m_Name: Bip01 R Thigh
   m_TagString: Untagged
@@ -1794,20 +1748,6 @@ CapsuleCollider:
   m_Height: 1.56
   m_Direction: 0
   m_Center: {x: -0.76, y: 0, z: 0}
---- !u!114 &4237362285894301901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451041516369660898}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 4590734439126922144}
-  bossManager: {fileID: 0}
 --- !u!1 &7791390373885152372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1757,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2417735983061259623}
-  - component: {fileID: 7892023021030971845}
   m_Layer: 0
   m_Name: Bip01
   m_TagString: Untagged
@@ -1842,20 +1781,6 @@ Transform:
   - {fileID: 7731713184110024590}
   m_Father: {fileID: 6423742745847348433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7892023021030971845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7791390373885152372}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b216c9b5531ee349b8be1ce2c4aa529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 4590734439126922144}
-  bossManager: {fileID: 0}
 --- !u!1 &7874421950358047000
 GameObject:
   m_ObjectHideFlags: 0
