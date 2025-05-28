@@ -10,6 +10,7 @@ TagManager:
   - Exit
   - Entrance
   - Object
+  - Boss
   layers:
   - Default
   - TransparentFX
