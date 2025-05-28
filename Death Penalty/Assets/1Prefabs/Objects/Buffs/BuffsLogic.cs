@@ -14,7 +14,7 @@ public class BuffsLogic : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Damage":
-                //KillingEnemies.damage *= 1.2f;
+                KrytoiDamage.damageBuff += 0.2f;
                 Destroy(gameObject);
                 break;
             case "Zamedlo":
