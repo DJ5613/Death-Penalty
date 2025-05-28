@@ -6,6 +6,8 @@ public class KrytoiDamage : MonoBehaviour
     public float damage = 20f;
     public float minHitSpeed = 5f; // Минимальная скорость удара
 
+    public static float damageBuff = 1f;
+
     private Vector3 lastPosition;
     private float currentSpeed;
 
@@ -30,7 +32,7 @@ public class KrytoiDamage : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent<EnemyStateManager>(out EnemyStateManager manager)) //урон по врагу
             {
-                manager.enemyHP -= damage;
+                manager.enemyHP -= (damage*damageBuff);
                 Debug.Log("Враг получил удар оружием! ХП: " + manager.enemyHP);
                 manager.PlayHitSound();
                 return;
