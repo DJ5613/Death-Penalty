@@ -73,7 +73,7 @@ public class EnemyStateManager : MonoBehaviour
     {        
         if (playerInRoom && navMeshAgent.enabled == true)
         {
-            wolkSpeed *= slow; //»«-«¿ ›“Œ… —“–Œ » ŒÕ» —“Œﬂ“ Õ¿ Ã≈—“≈
+            //wolkSpeed *= slow; //»«-«¿ ›“Œ… —“–Œ » ŒÕ» —“Œﬂ“ Õ¿ Ã≈—“≈
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
@@ -167,7 +167,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         navMeshAgent.enabled = false;
         transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 4f);
     }
 
 

@@ -101,27 +101,20 @@ public class GateControllerRoom : MonoBehaviour
 
         if (other.CompareTag(enemyTag))
         {
+
             enemiesInRoom.Add(other.gameObject);
         }
     }
+
+    
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(enemyTag))
         {
             ResultsMenu.kill_score += 1;
-            if(other.TryGetComponent<EnemyStateManager>(out EnemyStateManager manager))
-            {
-                manager.PlayDeathSound();
-            }
-
             enemiesInRoom.Remove(other.gameObject);
         }
-    }
-
-    public void RemoveEnemy(GameObject enemy)
-    {
-        enemiesInRoom.Remove(enemy);
     }
 
     public void SpawnBuff()
