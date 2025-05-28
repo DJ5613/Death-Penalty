@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitsToDestroy: 3
   hitSound: {fileID: 8300000, guid: 9de0a27cd63a9e64facfd9af9b10054f, type: 3}
+  destroySound: {fileID: 8300000, guid: 2cbbc85a65161594492ef2fc39e9dd17, type: 3}
 --- !u!65 &6854593294296181095
 BoxCollider:
   m_ObjectHideFlags: 0
