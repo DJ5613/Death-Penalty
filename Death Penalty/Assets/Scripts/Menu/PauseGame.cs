@@ -24,7 +24,7 @@ public class PauseGame : MonoBehaviour
             return;
         }
 
-        if (leftController.TryGetFeatureValue(CommonUsages.menuButton, out bool isPressed))
+        if (leftController.TryGetFeatureValue(CommonUsages.primaryButton, out bool isPressed))
         {
             // Срабатывает только при новом нажатии
             if (isPressed && !wasPressed)

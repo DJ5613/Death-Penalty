@@ -6,6 +6,7 @@ public class BreakableObject : MonoBehaviour
     private int hitCount = 0;
     private AudioSource audioSource;
     [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip healSound;
 
     private void Awake() {audioSource = GetComponent<AudioSource>();}
 
@@ -21,6 +22,7 @@ public class BreakableObject : MonoBehaviour
             if (Random.Range(0, 101) > 70)
             {
                 DamageDetector.PlayerHP += 20;
+                audioSource.PlayOneShot(healSound);
             }
             Debug.Log("Объект разрушен!");
         }
