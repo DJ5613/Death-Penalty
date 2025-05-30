@@ -65,6 +65,7 @@ public class GateControllerRoom : MonoBehaviour
                 
                 if (enemiesInRoom.Count == 0)
                 {
+                    audioSource.PlayOneShot(completeRoomSound);
                     gameObject.GetComponent<SpawnBuffs>().SpawnBuffNow();
                     gateState = GateState.Opening;
                 }
