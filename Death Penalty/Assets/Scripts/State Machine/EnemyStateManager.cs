@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 
 public class EnemyStateManager : MonoBehaviour
 {
@@ -85,6 +83,7 @@ public class EnemyStateManager : MonoBehaviour
             sword.transform.SetParent(null);
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
+            PlayDeathSound();
             Debug.Log("¬–¿√ ”Ã≈–");
             Invoke("FallDestroy", 2f);
         }

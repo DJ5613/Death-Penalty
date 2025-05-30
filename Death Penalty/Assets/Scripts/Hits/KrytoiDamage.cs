@@ -40,7 +40,7 @@ public class KrytoiDamage : MonoBehaviour
             collision.gameObject.TryGetComponent<BossStateManager>(out BossStateManager bossManager);
             bossManager.enemyHP -= damage;
             Debug.Log("Враг получил удар оружием! ХП: " + bossManager.enemyHP);
-            //bossManager.PlayHitSound();
+            bossManager.PlayHitSound();
             return;
         }
 

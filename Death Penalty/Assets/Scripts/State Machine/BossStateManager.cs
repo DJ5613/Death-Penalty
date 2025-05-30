@@ -31,7 +31,15 @@ public class BossStateManager : MonoBehaviour
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
     private int attackNum = 0;
-    private int maxAttackNum = 4;    
+    private int maxAttackNum = 4;
+
+    [Header("Звук")]
+    [SerializeField] private AudioSource _audioSource;
+    [Tooltip("Звук попадания по врагу")]
+    [SerializeField] private AudioClip getHitSound;
+    [Tooltip("Звук смерти")]
+    [SerializeField] private AudioClip deathSound;
+
     public int AttackNum
     {
         get { return attackNum; }
@@ -92,6 +100,7 @@ public class BossStateManager : MonoBehaviour
         if (enemyHP <= 0)
         {
             ResultsMenu.kill_score += 1;
+            PlayDeathSound();
             Debug.Log("БОСС УМЕР");
             resultMenu.SetActive(true);
         }
@@ -256,6 +265,16 @@ public class BossStateManager : MonoBehaviour
         if (value == 1) isRotate = true;
         else isRotate = false;
     }
+    public void PlayHitSound()
+    {
+        _audioSource.PlayOneShot(getHitSound);
+    }
+
+    public void PlayDeathSound()
+    {
+        _audioSource.PlayOneShot(deathSound);
+    }
+
     void CheckState()
     {
         //if (DistanceToTarget() >= comboAttackDistance)
