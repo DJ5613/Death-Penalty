@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UIElements;
 
 public class BreakableObject : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class BreakableObject : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private AudioClip hitSound;
     [SerializeField] private AudioClip healSound;
+    [SerializeField] private AudioClip destroySound;
+    [SerializeField] private AudioMixerGroup effectsMixerGroup;
 
     private void Awake() {audioSource = GetComponent<AudioSource>();}
 
@@ -18,34 +22,27 @@ public class BreakableObject : MonoBehaviour
 
         if (hitCount >= hitsToDestroy)
         {
-            Destroy(gameObject);
             if (Random.Range(0, 101) > 70)
             {
                 DamageDetector.PlayerHP += 20;
-                audioSource.PlayOneShot(healSound);
+                PlaySoundAtPosition(transform.position, healSound);
             }
+            PlaySoundAtPosition(transform.position, destroySound);
             Debug.Log("Объект разрушен!");
+            Destroy(gameObject);
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("Weapon"))
-    //    {
-    //        hitCount++;
-    //        audioSource.Play();
+    // Метод для создания временного аудиосурса
+    private void PlaySoundAtPosition(Vector3 position, AudioClip clip)
+    {
+        GameObject soundObject = new GameObject("TempAudioSource");
+        soundObject.transform.position = position;
+        AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
+        tempAudioSource.outputAudioMixerGroup = effectsMixerGroup;
+        tempAudioSource.PlayOneShot(clip);
 
-    //        Debug.Log("Объект получил удар оружием! Счётчик: " + hitCount);
-
-    //        if (hitCount >= hitsToDestroy)
-    //        {
-    //            Destroy(gameObject);
-    //            if (Random.Range(0, 101) > 70)
-    //            {
-    //                DamageDetector.PlayerHP += 20;
-    //            }
-    //            Debug.Log("Объект разрушен!");
-    //        }
-    //    }
-    //}
+        // Уничтожаем объект после завершения воспроизведения
+        Destroy(soundObject, clip.length);
+    }
 }
