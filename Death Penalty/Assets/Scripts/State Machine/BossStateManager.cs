@@ -93,17 +93,17 @@ public class BossStateManager : MonoBehaviour
     {
         if (playerInRoom)
         {
+            _audioSource.PlayOneShot(screamSound);
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
             if (attackNum == maxAttackNum) animator.SetBool("IsTired", true);
             if (isRotate) RotateTowardsTarget();
         }
-        if (enemyHP <= 0 && !isDeath)
+        if (enemyHP <= 0 && (currentState != bossDeathState))
         {
-            isDeath = true;
-            currentState = bossDeathState;
-            
+            SwichState(bossDeathState);
+
             ResultsMenu.kill_score += 1;
             Debug.Log("аняя слеп");
             
