@@ -6041,7 +6041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25241,7 +25241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83f33fe5343b564db74a851caa02834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
   text: {fileID: 1531375437}
   timer: {fileID: 227662214}
 --- !u!1 &1590305477
@@ -29887,7 +29886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83f33fe5343b564db74a851caa02834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
   text: {fileID: 1073012838}
   timer: {fileID: 1839238423}
 --- !u!4 &1828087236 stripped

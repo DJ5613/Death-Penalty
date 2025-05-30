@@ -21,11 +21,12 @@ public class ResultsMenu : MonoBehaviour
     {
         if (DamageDetector.PlayerHP <= 0)
         {
+            Time.timeScale = 0f;
             status.text = "Вы проиграли!";
         }
         else
         {
-            status.text = "Вы зачем в это играли?";
+            status.text = "Вы выиграли!";
         }
         int minutes = Mathf.FloorToInt(Timer.currentTime / 60f);
         int seconds = Mathf.FloorToInt(Timer.currentTime % 60f);
@@ -34,8 +35,6 @@ public class ResultsMenu : MonoBehaviour
         kill_enemies.text = "Врагов убито: " + kill_score.ToString();
 
         diff.text = "Сложность: " + difficults[SwitchDifficulty.dif_num - 1];
-
-        Time.timeScale = 0f;
     }
 
     private void OnDisable()

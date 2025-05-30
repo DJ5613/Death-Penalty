@@ -27,6 +27,8 @@ public class BossStateManager : MonoBehaviour
     public static bool playerInRoom;
     [NonSerialized] public bool isRotate = true;
 
+    private bool isDeath = false;
+
 
     private Vector2 Velocity;
     private Vector2 SmoothDeltaPosition;
@@ -38,7 +40,7 @@ public class BossStateManager : MonoBehaviour
     [Tooltip("Звук попадания по врагу")]
     [SerializeField] private AudioClip getHitSound;
     [Tooltip("Звук смерти")]
-    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip screamSound;
 
     public int AttackNum
     {
@@ -97,15 +99,19 @@ public class BossStateManager : MonoBehaviour
             if (attackNum == maxAttackNum) animator.SetBool("IsTired", true);
             if (isRotate) RotateTowardsTarget();
         }
-        if (enemyHP <= 0)
+        if (enemyHP <= 0 && !isDeath)
         {
+            isDeath = true;
+            currentState = bossDeathState;
+            
             ResultsMenu.kill_score += 1;
-            PlayDeathSound();
             Debug.Log("БОСС УМЕР");
+            
             resultMenu.SetActive(true);
         }
         if (enemyHP <= halfHP)
         {
+            _audioSource.PlayOneShot(screamSound);
             animator.SetBool("SecondStage", true);
             maxAttackNum = 7;
         }
@@ -272,11 +278,11 @@ public class BossStateManager : MonoBehaviour
 
     public void PlayDeathSound()
     {
-        _audioSource.PlayOneShot(deathSound);
+        _audioSource.PlayOneShot(screamSound);
     }
 
-    void CheckState()
-    {
+    //void CheckState()
+    //{
         //if (DistanceToTarget() >= comboAttackDistance)
         //{
         //    SwichState(agroState);
@@ -292,7 +298,7 @@ public class BossStateManager : MonoBehaviour
         //    SwichState(simpleAttackState);
         //    return;
         //}
-    }
+    //}
 }
 
 //using UnityEngine;

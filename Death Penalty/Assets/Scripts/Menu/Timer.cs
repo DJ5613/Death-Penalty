@@ -5,7 +5,6 @@ using System;
 public class Timer : MonoBehaviour
 {
     [Header("Настройки таймера")]
-    [SerializeField] private float startTime = 0f; // Время в секундах
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI timer;
     [NonSerialized] static public float currentTime;
