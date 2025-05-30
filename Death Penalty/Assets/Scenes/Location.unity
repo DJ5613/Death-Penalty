@@ -654,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.481
+      value: -7.55
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.96
+      value: 40.06
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6041,7 +6041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7996,7 +7996,7 @@ GameObject:
   - component: {fileID: 489504928}
   - component: {fileID: 489504929}
   m_Layer: 0
-  m_Name: Trigger_Zone
+  m_Name: Trigger_Zone 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9696,7 +9696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5596350662152064633, guid: d74b089bebb949a43bbc45b6cefe79eb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2796173824403859726, guid: d74b089bebb949a43bbc45b6cefe79eb, type: 3}
@@ -14124,11 +14124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263580878359162797, guid: 44dc59ac0b1e9cb45923004f4e0e5c1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.617
+      value: -5.95
       objectReference: {fileID: 0}
     - target: {fileID: 3263580878359162797, guid: 44dc59ac0b1e9cb45923004f4e0e5c1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.78
+      value: 2.284
       objectReference: {fileID: 0}
     - target: {fileID: 3263580878359162797, guid: 44dc59ac0b1e9cb45923004f4e0e5c1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14168,7 +14168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263580878359327629, guid: 44dc59ac0b1e9cb45923004f4e0e5c1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3879481446492475679, guid: 44dc59ac0b1e9cb45923004f4e0e5c1b, type: 3}
       propertyPath: m_Enabled
@@ -18119,7 +18119,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4542932292022909283, guid: e724165bfc280e7429b02a91f0a47d33, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -18223,8 +18223,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 40.57467, z: 1}
-  m_Center: {x: 0, y: 19.787344, z: 0}
+  m_Size: {x: 1, y: 15.67137, z: 1}
+  m_Center: {x: 0, y: 32.238953, z: 0}
 --- !u!4 &1150692725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8765219198300416339, guid: bd152a4c0ad70b941a040677cf5f9b2f, type: 3}
@@ -18869,7 +18869,7 @@ GameObject:
   - component: {fileID: 1202721971}
   - component: {fileID: 1202721972}
   m_Layer: 0
-  m_Name: Trigger_Zone
+  m_Name: Trigger_Zone 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18928,8 +18928,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9856136, y: 0.99999976, z: 1}
-  m_Center: {x: -0.007193399, y: 0, z: -3.80898e-17}
+  m_Size: {x: 0.9856136, y: 1.039116, z: 1}
+  m_Center: {x: -0.0071934154, y: -0.019560061, z: -3.808959e-17}
 --- !u!23 &1202721968
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22811,7 +22811,7 @@ GameObject:
   - component: {fileID: 1424913075}
   - component: {fileID: 1424913076}
   m_Layer: 0
-  m_Name: Trigger_Zone
+  m_Name: Trigger_Zone 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30638,7 +30638,7 @@ GameObject:
   - component: {fileID: 1864511552}
   - component: {fileID: 1864511551}
   m_Layer: 0
-  m_Name: Trigger_Zone
+  m_Name: Trigger_Zone 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31969,7 +31969,7 @@ GameObject:
   - component: {fileID: 1901280147}
   - component: {fileID: 1901280148}
   m_Layer: 0
-  m_Name: Trigger_Zone
+  m_Name: Trigger_Zone 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32028,8 +32028,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9856136, y: 0.99999976, z: 1}
-  m_Center: {x: -0.007193399, y: 0.5, z: -3.80898e-17}
+  m_Size: {x: 0.9856138, y: 1.1517438, z: 1}
+  m_Center: {x: -0.007193382, y: 0.42412415, z: -3.8090013e-17}
 --- !u!23 &1901280144
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32305,7 +32305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.73
+      value: 23.88
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32313,7 +32313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.82
+      value: -64.169
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36468,6 +36468,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1657208848}
     m_Modifications:
     - target: {fileID: 3346537899037078156, guid: a35f79566c2426c438fed0f9d1856f06, type: 3}
+      propertyPath: enemyHP
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346537899037078156, guid: a35f79566c2426c438fed0f9d1856f06, type: 3}
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 371db4e46b701a84783b857e57b19d97, type: 3}
@@ -36486,7 +36490,7 @@ PrefabInstance:
     - target: {fileID: 3346537899037078156, guid: a35f79566c2426c438fed0f9d1856f06, type: 3}
       propertyPath: screamSound
       value: 
-      objectReference: {fileID: 8300000, guid: dcf7528ea531fe94d928f3257774488f, type: 3}
+      objectReference: {fileID: 8300000, guid: c630bde5141139b438d9e3b8b7e7f4b5, type: 3}
     - target: {fileID: 3346537899037078156, guid: a35f79566c2426c438fed0f9d1856f06, type: 3}
       propertyPath: _audioSource
       value: 
@@ -36836,7 +36840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6013990982369288243, guid: 446537a5e4bab814fb6203cbd4680b71, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6358568393392945801, guid: 446537a5e4bab814fb6203cbd4680b71, type: 3}
       propertyPath: m_LocalScale.x

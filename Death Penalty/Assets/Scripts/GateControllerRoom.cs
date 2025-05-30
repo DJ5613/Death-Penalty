@@ -111,7 +111,7 @@ public class GateControllerRoom : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-            ResultsMenu.kill_score += 1;
+            Debug.Log("ÂĞÀÃ ÂÛØÅË " + gameObject.name);
             enemiesInRoom.Remove(other.gameObject);
         }
     }

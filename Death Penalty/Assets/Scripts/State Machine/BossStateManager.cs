@@ -18,6 +18,7 @@ public class BossStateManager : MonoBehaviour
     public float enemyDamage;
     Transform target;
     NavMeshPath _cachedPath;
+    bool flag = false;
 
     BaseState currentState;
     public BossAgroState bossAgroState = new BossAgroState();
@@ -93,14 +94,18 @@ public class BossStateManager : MonoBehaviour
     {
         if (playerInRoom)
         {
-            _audioSource.PlayOneShot(screamSound);
+            if (!flag)
+            {
+                flag = true;
+                _audioSource.PlayOneShot(screamSound);
+            }
             SetDestination(player);
             navMeshAgent.destination = target.position;
             currentState.UpdateState(this);
             if (attackNum == maxAttackNum) animator.SetBool("IsTired", true);
             if (isRotate) RotateTowardsTarget();
         }
-        if (enemyHP <= 0 && (currentState != bossDeathState))
+        if (enemyHP <= 0 && !(animator.GetBool("IsDeath")))
         {
             SwichState(bossDeathState);
 
@@ -109,7 +114,7 @@ public class BossStateManager : MonoBehaviour
             
             resultMenu.SetActive(true);
         }
-        if (enemyHP <= halfHP)
+        if (enemyHP <= halfHP && !(animator.GetBool("SecondStage")))
         {
             _audioSource.PlayOneShot(screamSound);
             animator.SetBool("SecondStage", true);
@@ -276,10 +281,10 @@ public class BossStateManager : MonoBehaviour
         _audioSource.PlayOneShot(getHitSound);
     }
 
-    public void PlayDeathSound()
-    {
-        _audioSource.PlayOneShot(screamSound);
-    }
+    //public void PlayDeathSound()
+    //{
+       // _audioSource.PlayOneShot(screamSound);
+    //}
 
     //void CheckState()
     //{

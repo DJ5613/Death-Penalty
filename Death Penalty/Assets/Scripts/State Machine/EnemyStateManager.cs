@@ -78,14 +78,22 @@ public class EnemyStateManager : MonoBehaviour
             if (DistanceToTarget() < agroDistance && !animator.GetBool("IsDeath") && rotationFlag) RotateTowardsTarget();
         }
         if (enemyHP <= 0 && (currentState != deathState)) 
-        { 
+        {
+            ResultsMenu.kill_score += 1;
             SwichState(deathState);
+            Invoke("FallDestroy", 2f);
             sword.transform.SetParent(null);
             sword.GetComponent<Rigidbody>().isKinematic = false;
             sword.GetComponent<Collider>().isTrigger = false;
+            Destroy(sword,4f);
             _audioSource.PlayOneShot(deathSound);
             Debug.Log("¬–¿√ ”Ã≈–");
+            navMeshAgent.enabled = false;
+            Destroy(gameObject, 6f);
+
+        }else if((currentState == deathState)) {
             Invoke("FallDestroy", 2f);
+            //transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
         }
     }
 
@@ -164,10 +172,10 @@ public class EnemyStateManager : MonoBehaviour
     }
     void FallDestroy()
     {
-        navMeshAgent.enabled = false;
+        //navMeshAgent.enabled = false;
         transform.Translate(Vector3.down * 1 * Time.deltaTime, Space.World);
-        PlayDeathSound();
-        Destroy(gameObject, 4f);
+        //PlayDeathSound();
+        //Destroy(gameObject, 4f);
     }
 
 
