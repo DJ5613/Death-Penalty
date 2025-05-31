@@ -41,6 +41,8 @@ public class BossStateManager : MonoBehaviour
     [Tooltip("Звук попадания по врагу")]
     [SerializeField] private AudioClip getHitSound;
     [Tooltip("Звук смерти")]
+    [SerializeField] private AudioClip deathSound;
+    [Tooltip("Звук крика")]
     [SerializeField] private AudioClip screamSound;
 
     public int AttackNum
@@ -107,6 +109,8 @@ public class BossStateManager : MonoBehaviour
         }
         if (enemyHP <= 0 && !(animator.GetBool("IsDeath")))
         {
+            _audioSource.PlayOneShot(deathSound);
+
             SwichState(bossDeathState);
 
             ResultsMenu.kill_score += 1;

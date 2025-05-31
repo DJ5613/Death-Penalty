@@ -6041,7 +6041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36474,7 +36474,7 @@ PrefabInstance:
     - target: {fileID: 3346537899037078156, guid: a35f79566c2426c438fed0f9d1856f06, type: 3}
       propertyPath: deathSound
       value: 
-      objectReference: {fileID: 8300000, guid: 371db4e46b701a84783b857e57b19d97, type: 3}
+      objectReference: {fileID: 8300000, guid: e3cd362edd39f544cb88fbb9009b871d, type: 3}
     - target: {fileID: 3346537899037078156, guid: a35f79566c2426c438fed0f9d1856f06, type: 3}
       propertyPath: resultMenu
       value: 
