@@ -10,8 +10,6 @@ public class GateControllerRoom : MonoBehaviour
     public float moveSpeed = 2.5f;
     public string enemyTag = "Enemy";
 
-    [SerializeField] private GameObject[] buffs;
-
     private enum GateState { Open, Opening, Closed, Closing }
     private GateState gateState = GateState.Open; // Начинаем с ОТКРЫТЫХ ворот (опущенных)
 
@@ -67,6 +65,7 @@ public class GateControllerRoom : MonoBehaviour
                 
                 if (enemiesInRoom.Count == 0)
                 {
+                    audioSource.PlayOneShot(completeRoomSound);
                     gameObject.GetComponent<SpawnBuffs>().SpawnBuffNow();
                     gateState = GateState.Opening;
                 }
@@ -112,14 +111,9 @@ public class GateControllerRoom : MonoBehaviour
     {
         if (other.CompareTag(enemyTag))
         {
-            ResultsMenu.kill_score += 1;
+            Debug.Log("ВРАГ ВЫШЕЛ " + gameObject.name);
             enemiesInRoom.Remove(other.gameObject);
         }
-    }
-
-    public void SpawnBuff()
-    {
-        int randomIndex = Random.Range(0, buffs.Length);
     }
 
     public void PlayCompleteRoomSound()
