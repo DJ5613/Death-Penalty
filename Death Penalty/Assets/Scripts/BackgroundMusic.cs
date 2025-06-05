@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 public class BackgroundMusic : MonoBehaviour
 {
@@ -140,10 +139,4 @@ public class BackgroundMusic : MonoBehaviour
         }
     }
 
-    // Метод для переключения режима случайного порядка
-    public void SetShuffle(bool enableShuffle)
-    {
-        shuffle = enableShuffle;
-        CreatePlaylist(); // Пересоздаем плейлист при изменении режима
-    }
 }
